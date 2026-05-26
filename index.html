@@ -7,6 +7,7 @@
   <meta name="description" content="Linz Tattoo: professional tattoo studio specializing in custom pieces, black & grey, fine line, realism, and artistic tattoo design." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Montserrat:wght@500;700;800;900&family=Rajdhani:wght@400;500;600;700&family=Allura&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css" />
 </head>
@@ -55,19 +56,28 @@
     </div>
 
     <div class="artist-bio-box">
+      <p class="script-text">custom delicate tattoos</p>
       <h2>Meet the Artist</h2>
       <p>
-        I'm Ailin, a Cuban tattoo artist now based in savannah GA, working at the fabulous Tramp art studios
-      I specialize in fine line, micro realism, black & grey, color, blackwork , line-dot work. 
-       My focus is on creating custom tattoos with clean lines, precision, and high attention to detail.
-       I'm currently looking to connect with new clients who appreciate delicate, detailed work-especially in styles like ornamental designs, animals, and transparency effects.
-
-       Let's bring your idea to life t
+        I’m Ailin, a Cuban tattoo artist based in Savannah, Georgia, currently creating at the renowned Tramp Art Studios.
       </p>
       <p>
-        The goal is to create tattoos that feel intentional, personal, and visually strong — from delicate
-        details to bold custom compositions. Each session is handled with care, precision, and respect for
-        the meaning behind the artwork.
+        Formally trained at the National Academy of Fine Arts in Havana, Cuba, I bring a strong foundation in fine arts and a meticulous attention to detail into every piece I create.
+      </p>
+      <p>
+        My work specializes in fine line, micro realism, black & grey, color, blackwork, and line-dot techniques — blending precision, softness, and composition to create custom tattoos that feel both refined and timeless.
+      </p>
+      <p>
+        I’m especially drawn to delicate, highly detailed designs inspired by ornamental elements, animals, transparency effects, and organic textures. Each piece is thoughtfully designed to complement the body while maintaining individuality and artistic intention.
+      </p>
+      <p>
+        For me, tattooing is more than applying ink to skin — it is a collaborative artistic experience built on trust, creativity, and craftsmanship.
+      </p>
+      <p>
+        My goal is to create meaningful pieces that not only look beautiful today, but continue to age with elegance over time.
+      </p>
+      <p>
+        Let’s create something timeless together.
       </p>
     </div>
 
@@ -204,6 +214,32 @@
               No one under the age of 18 is allowed inside the studio.
             </p>
           </div>
+          <button class="accordion-btn">Tattoo Aftercare<span>+</span></button>
+          <div class="accordion-panel">
+            <p>
+              Your tattoo is an open wound and proper aftercare is essential to ensure the best healed result.
+              Please follow these instructions carefully throughout the healing process.
+            </p>
+            <ul class="aftercare-list">
+              <li>Wash your tattoo gently 2–3 times daily using lukewarm water and mild, fragrance-free soap during the first week.</li>
+              <li>While showering, avoid direct high-pressure water on the tattooed area. Pat dry gently with a clean paper towel — never rub the skin.</li>
+              <li>Begin applying the aftercare product recommended by your tattoo artist starting on the third day. Apply only a very thin layer after each wash.</li>
+              <li>Do not use petroleum jelly or any products that were not recommended by your tattoo artist.</li>
+              <li>Do not re-wrap or cover the tattoo unless specifically instructed to do so.</li>
+              <li>Avoid touching the tattoo with unwashed hands. Do not scratch, peel, or pick at scabs or flaking skin, as this may affect healing and damage the final result.</li>
+              <li>Avoid direct sun exposure until the tattoo is fully healed. After healing, always use sunscreen to help preserve the quality and longevity of your tattoo.</li>
+              <li>Do not swim or soak the tattoo in pools, hot tubs, lakes, rivers, or the ocean during the healing process.</li>
+              <li>Wear loose, clean clothing to avoid friction and prevent fabric from sticking to the tattoo.</li>
+              <li>Avoid excessive sweating, intense physical activity, alcohol consumption, and close contact with animals during the first week of healing.</li>
+              <li>Healing times may vary depending on placement, skin type, and lifestyle. If you experience excessive redness, swelling, unusual pain, or any signs of infection, seek medical attention immediately.</li>
+            </ul>
+            <p>
+              Following these aftercare instructions will help your tattoo heal properly and maintain the best possible detail, contrast, and longevity.
+            </p>
+            <p>
+              Thank you for trusting me with your skin.
+            </p>
+          </div>
           <button class="accordion-btn">Can I send references?<span>+</span></button>
           <div class="accordion-panel"><p>Yes. The form allows you to upload reference images and a photo of the body area to better plan the design.</p></div>
           <button class="accordion-btn">Do you create custom designs?<span>+</span></button>
@@ -234,9 +270,13 @@
         <label>Full Name<input type="text" name="Full Name" placeholder="Name" required></label>
         <label>Email<input type="email" name="Email" placeholder="@gmail.com" required></label>
         <label>Phone Number<input type="tel" name="Phone Number" placeholder="(555) 123-4567" required></label>
-        <label>Country<input type="text" name="Country" placeholder="United States"></label>
-        <label>State<input type="text" name="State" placeholder="Select"></label>
-        <label>City<input type="text" name="City" placeholder="City"></label>
+        <label>Local or Visiting
+          <select name="Local or Visiting" required>
+            <option value="">Select an option</option>
+            <option>Local</option>
+            <option>Visiting</option>
+          </select>
+        </label>
         <label>Style
           <select name="Tattoo Style" required>
             <option value="">Select a style</option>
@@ -248,7 +288,17 @@
             <option>Not Sure Yet</option>
           </select>
         </label>
+        <label>Is this a cover up?
+          <select name="Cover Up" required>
+            <option value="">Select an option</option>
+            <option>Yes</option>
+            <option>No</option>
+          </select>
+        </label>
         <label>Body Placement<input type="text" name="Body Placement" placeholder="Example: inner forearm, left side" required></label>
+        <label>Estimated Size
+          <input type="number" name="Estimated Size" placeholder="Example: 3" min="1" step="0.1" inputmode="decimal" required>
+        </label>
         <label>Do you have an estimate in mind?<input type="text" name="Estimated Budget" placeholder="Example: $120 - $250" required></label>
         <label class="full">Describe Your Idea<textarea name="Tattoo Idea" placeholder="Concept, style, elements, size..." required></textarea></label>
         <label class="upload">Photo of Body Placement<input type="file" name="Body Placement Photo" accept="image/*"></label>
