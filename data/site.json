@@ -1,0 +1,18 @@
+{
+  "businessName": "Linz Tattoo",
+  "location": "Savannah, Georgia",
+  "instagram": "https://www.instagram.com/",
+  "bookingEmail": "YOUR-EMAIL-HERE",
+  "depositText": "A $100 non-refundable deposit is required to book your tattoo appointment. Your deposit will be applied toward the final price of your tattoo on the day of your session. A minimum 48-hour notice is required to reschedule.",
+  "styles": [
+    "Black & Grey",
+    "Fine Line",
+    "Micro Realism",
+    "Realism",
+    "Ornamental",
+    "Color",
+    "Blackwork",
+    "Custom",
+    "Process"
+  ]
+}

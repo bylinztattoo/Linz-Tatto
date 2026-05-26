@@ -1,0 +1,58 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "img/uploads"
+public_folder: "/img/uploads"
+
+collections:
+  - name: "settings"
+    label: "Site Settings"
+    files:
+      - label: "Linz Tattoo Settings"
+        name: "site"
+        file: "data/site.json"
+        fields:
+          - { label: "Business Name", name: "businessName", widget: "string" }
+          - { label: "Location", name: "location", widget: "string" }
+          - { label: "Instagram", name: "instagram", widget: "string" }
+          - { label: "Booking Email", name: "bookingEmail", widget: "string" }
+          - { label: "Deposit Text", name: "depositText", widget: "text" }
+          - label: "Styles"
+            name: "styles"
+            widget: "list"
+            summary: "{{fields.style}}"
+            field:
+              label: "Style"
+              name: "style"
+              widget: "string"
+
+  - name: "portfolio"
+    label: "Portfolio Gallery"
+    files:
+      - label: "Tattoo Gallery"
+        name: "gallery"
+        file: "data/gallery.json"
+        fields:
+          - label: "Gallery Items"
+            name: "gallery"
+            widget: "list"
+            summary: "{{fields.category}} — {{fields.title}}"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - label: "Tattoo Style / Category"
+                name: "category"
+                widget: "select"
+                options:
+                  - "Black & Grey"
+                  - "Fine Line"
+                  - "Micro Realism"
+                  - "Realism"
+                  - "Ornamental"
+                  - "Color"
+                  - "Blackwork"
+                  - "Custom"
+                  - "Process"
+              - { label: "Description", name: "description", widget: "text", required: false }
+              - { label: "Image", name: "image", widget: "image" }
+              - { label: "Featured", name: "featured", widget: "boolean", required: false, default: false }
