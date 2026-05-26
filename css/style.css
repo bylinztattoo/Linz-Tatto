@@ -17,9 +17,9 @@
   --line: rgba(244, 160, 0, 0.28);
   --panel: #171717;
 
-  --font-title: 'Anton', 'Bebas Neue', 'Montserrat', system-ui, sans-serif;
-  --font-body: 'Rajdhani', 'Montserrat', system-ui, sans-serif;
-  --font-script: 'Brittany Signature', 'Moontime', 'Allura', cursive;
+--font-title: 'Anton', 'Bebas Neue', 'Montserrat', system-ui, sans-serif;
+--font-body: 'Rajdhani', 'Montserrat', system-ui, sans-serif;
+--font-script: 'Brittany Signature', 'Moontime', 'Allura', cursive;
 }
 
 /* -----------------------------
@@ -187,6 +187,8 @@ textarea {
   font-weight: 800;
   letter-spacing: 0.02em;
   transition: 0.25s ease;
+  font-family: var(--font-body);
+ font-weight: 900;
 }
 
 .btn-gold {
@@ -271,12 +273,12 @@ textarea {
 }
 
 .script-text {
-  margin: 0 0 10px;
+  margin: 0 0 8px;
   font-family: var(--font-script);
-  font-size: clamp(38px, 5vw, 78px);
+  font-size: clamp(34px, 4vw, 64px);
   font-weight: 400;
-  line-height: 0.9;
-  letter-spacing: 0.01em;
+  line-height: 1;
+  letter-spacing: 0;
   color: var(--gold);
   text-transform: none;
 }
@@ -285,11 +287,11 @@ textarea {
 h1 {
   margin: 18px 0 28px;
   font-family: var(--font-title);
-  font-size: clamp(64px, 9vw, 154px);
-  line-height: 0.86;
+  font-size: clamp(72px, 10vw, 168px);
+  line-height: 0.78;
   text-transform: uppercase;
-  font-weight: 400;
-  letter-spacing: 0.02em;
+  font-weight: 700;
+  letter-spacing: -0.045em;
 }
 
 h1 span {
@@ -349,8 +351,8 @@ h2,
 .booking-dialog h2,
 .lightbox-content h3 {
   font-family: var(--font-title);
-  font-weight: 400;
-  letter-spacing: 0.02em;
+  font-weight: 700;
+  letter-spacing: -0.035em;
   text-transform: uppercase;
 }
 
@@ -885,7 +887,7 @@ textarea {
   flex-direction: column;
   gap: 12px;
   text-transform: uppercase;
-  font-family: var(--font-title);
+  font-family: var(--font-body);
   font-weight: 800;
   font-size: 14px;
   letter-spacing: 0.04em;
@@ -1059,6 +1061,8 @@ textarea {
 
   .desktop-nav {
     display: none;
+    font-family: var(--font-body);
+    font-weight: 900;
   }
 
   .menu-toggle {
@@ -1216,12 +1220,12 @@ textarea {
 .artist-bio-box h2 {
   margin: 0 0 14px;
   font-family: var(--font-title);
-  font-size: clamp(34px, 4.8vw, 64px);
-  line-height: 0.95;
+  font-size: clamp(42px, 5vw, 76px);
+  line-height: 0.9;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.72);
-  font-weight: 400;
-  letter-spacing: 0.02em;
+  color: rgba(255, 255, 255, 0.78);
+  font-weight: 700;
+  letter-spacing: -0.035em;
 }
 
 .artist-bio-box p {
