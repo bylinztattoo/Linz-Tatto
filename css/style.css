@@ -1186,7 +1186,7 @@ textarea {
   inset: 0;
   background:
     linear-gradient(90deg, rgba(0, 0, 0, 0.88) 0%, rgba(0, 0, 0, 0.62) 38%, rgba(0, 0, 0, 0.18) 100%),
-    url("../img/artist/linz.jpg") center 35% / cover no-repeat;
+    url("../img/artist/linz.jpg") 82% 35% / auto 112% no-repeat;
   z-index: 0;
 }
 
