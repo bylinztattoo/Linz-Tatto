@@ -1,11 +1,3 @@
 {
-  "reviews": [
-    {
-      "approved": true,
-      "name": "Elvis Torres",
-      "rating": 5,
-      "style": "Custom Tattoo",
-      "review": "Amazing artist ❤️‍🔥"
-    }
-  ]
+  "reviews": []
 }

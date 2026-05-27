@@ -1,25 +1,17 @@
 # Linz Tattoo Website
 
-Proyecto actualizado listo para subir completo a GitHub o Netlify.
+Sitio web estático listo para abrir en Visual Studio Code y subir a Netlify.
 
-## Estructura principal
-- index.html
-- css/style.css
-- js/script.js
-- admin/config.yml
-- admin/index.html
-- data/portfolio.json
-- data/site.json
-- data/reviews.json
-- img/artist/
-- img/gallery/
-- img/uploads/
+## Archivos principales
+- `index.html`: estructura completa del sitio.
+- `css/style.css`: diseño visual, responsive y animaciones.
+- `js/script.js`: menú móvil, modal de reserva, galería y FAQ.
+- `img/logo-eye.svg`: logo provisional tipo ojo.
+- `admin/config.yml`: configuración inicial para Decap CMS.
+- `data/site.json`: datos editables base.
 
-## Importante
-Coloca la imagen principal de la artista en:
-img/artist/linz.jpg
-
-Si ya tienes imágenes de galería, súbelas a:
-img/gallery/ o img/uploads/
-
-Después de subir el proyecto completo, espera el deploy automático de Netlify.
+## Cambios importantes antes de publicar
+1. En `index.html`, busca `YOUR-EMAIL-HERE` y reemplázalo por el correo real donde recibirás las reservas.
+2. Reemplaza los fondos provisionales por imágenes reales en la carpeta `img/`.
+3. Cambia los textos de Orlando/Florida si la ubicación final será otra.
+4. Si usarás Netlify + Decap CMS, activa Identity y Git Gateway.

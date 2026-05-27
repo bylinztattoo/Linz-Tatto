@@ -6,41 +6,19 @@ media_folder: "img/uploads"
 public_folder: "/img/uploads"
 
 collections:
-  - name: "settings"
-    label: "Site Settings"
-    files:
-      - label: "Linz Tattoo Settings"
-        name: "site"
-        file: "data/site.json"
-        fields:
-          - { label: "Business Name", name: "businessName", widget: "string" }
-          - { label: "Location", name: "location", widget: "string" }
-          - { label: "Instagram", name: "instagram", widget: "string" }
-          - { label: "Booking Email", name: "bookingEmail", widget: "string" }
-          - { label: "Deposit Text", name: "depositText", widget: "text" }
-          - label: "Styles"
-            name: "styles"
-            widget: "list"
-            summary: "{{fields.style}}"
-            field:
-              label: "Style"
-              name: "style"
-              widget: "string"
-
   - name: "portfolio"
-    label: "Portfolio Gallery"
+    label: "Portfolio Galleries"
     files:
-      - label: "Tattoo Gallery"
-        name: "gallery"
-        file: "data/gallery.json"
+      - label: "Tattoo Style Galleries"
+        name: "portfolio"
+        file: "data/portfolio.json"
         fields:
-          - label: "Gallery Items"
-            name: "gallery"
+          - label: "Galleries"
+            name: "galleries"
             widget: "list"
-            summary: "{{fields.category}} — {{fields.title}}"
+            summary: "{{fields.category}}"
             fields:
-              - { label: "Title", name: "title", widget: "string" }
-              - label: "Tattoo Style / Category"
+              - label: "Category"
                 name: "category"
                 widget: "select"
                 options:
@@ -49,14 +27,18 @@ collections:
                   - "Micro Realism"
                   - "Realism"
                   - "Color"
-                  - "Color"
                   - "Other"
-                  - "Other"
-                  - "Process"
-              - { label: "Description", name: "description", widget: "text", required: false }
-              - { label: "Image", name: "image", widget: "image" }
-              - { label: "Featured", name: "featured", widget: "boolean", required: false, default: false }
-
+              - { label: "Gallery Title", name: "title", widget: "string" }
+              - { label: "Gallery Description", name: "description", widget: "text", required: false }
+              - { label: "Cover Image", name: "coverImage", widget: "image", required: false }
+              - label: "Internal Gallery Images"
+                name: "images"
+                widget: "list"
+                summary: "{{fields.title}}"
+                fields:
+                  - { label: "Image", name: "image", widget: "image" }
+                  - { label: "Image Title", name: "title", widget: "string", required: false }
+                  - { label: "Image Description", name: "description", widget: "text", required: false }
 
   - name: "reviews"
     label: "Client Reviews"

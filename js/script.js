@@ -1,274 +1,471 @@
-const header = document.querySelector('.site-header');
-const menuToggle = document.querySelector('.menu-toggle');
-const mobileMenu = document.querySelector('.mobile-menu');
-const menuClose = document.querySelector('.menu-close');
-const bookingModal = document.querySelector('.booking-modal');
-const openBookingButtons = document.querySelectorAll('.js-open-booking');
-const closeBookingButtons = document.querySelectorAll('.js-close-booking');
-const lightbox = document.querySelector('.lightbox');
-const lightboxTitle = document.querySelector('.lightbox h3');
-const lightboxText = document.querySelector('.lightbox p');
-const lightboxImage = document.querySelector('.lightbox-image');
-const lightboxCategory = document.querySelector('.lightbox-category');
-const lightboxClose = document.querySelector('.lightbox-close');
-const portfolioGrid = document.querySelector('#portfolioGrid');
-const galleryFilters = document.querySelectorAll('.gallery-filter');
-const siteHeader = document.querySelector('.site-header');
-const menuPeek = document.querySelector('.menu-peek');
+/* =========================================================
+   LINZ TATTOO - MAIN SCRIPT
+   Internal gallery system + admin-ready data
+   ========================================================= */
 
-const year = document.getElementById('year');
+const $ = (selector, parent = document) => parent.querySelector(selector);
+const $$ = (selector, parent = document) => Array.from(parent.querySelectorAll(selector));
+
+function escapeHtml(value) {
+  return String(value || "")
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+}
+
+/* Year */
+const year = $("#year");
 if (year) year.textContent = new Date().getFullYear();
 
-/* Header behavior */
-window.addEventListener('scroll', () => {
-  if (!header) return;
+/* Header hide/show on scroll */
+const header = $(".site-header");
+const menuPeek = $(".menu-peek");
+let lastScrollY = window.scrollY;
 
-  header.classList.toggle('scrolled', window.scrollY > 40);
+function updateHeaderOnScroll() {
+  if (!header || !menuPeek) return;
 
-  if (!siteHeader || !menuPeek) return;
+  const currentY = window.scrollY;
+  const scrollingDown = currentY > lastScrollY && currentY > 120;
 
-  if (window.scrollY > 120) {
-    siteHeader.classList.add('menu-hidden');
-    menuPeek.classList.add('is-visible');
-  } else {
-    siteHeader.classList.remove('menu-hidden');
-    menuPeek.classList.remove('is-visible');
+  if (scrollingDown) {
+    header.classList.add("menu-hidden");
+    menuPeek.classList.add("is-visible");
+  } else if (currentY < 60) {
+    header.classList.remove("menu-hidden");
+    menuPeek.classList.remove("is-visible");
   }
-});
 
-if (menuPeek && siteHeader) {
-  menuPeek.addEventListener('click', () => {
-    siteHeader.classList.remove('menu-hidden');
-    menuPeek.classList.remove('is-visible');
+  if (currentY > 20) header.classList.add("scrolled");
+  else header.classList.remove("scrolled");
+
+  lastScrollY = currentY;
+}
+
+window.addEventListener("scroll", updateHeaderOnScroll, { passive: true });
+
+if (menuPeek && header) {
+  menuPeek.addEventListener("click", () => {
+    header.classList.remove("menu-hidden");
+    menuPeek.classList.remove("is-visible");
   });
 }
 
 /* Mobile menu */
-menuToggle?.addEventListener('click', () => {
-  mobileMenu?.classList.add('active');
-  mobileMenu?.setAttribute('aria-hidden', 'false');
-});
+const menuToggle = $(".menu-toggle");
+const mobileMenu = $(".mobile-menu");
+const menuClose = $(".menu-close");
 
-menuClose?.addEventListener('click', () => {
-  mobileMenu?.classList.remove('active');
-  mobileMenu?.setAttribute('aria-hidden', 'true');
-});
+if (menuToggle && mobileMenu) {
+  menuToggle.addEventListener("click", () => {
+    mobileMenu.classList.add("active");
+    mobileMenu.setAttribute("aria-hidden", "false");
+  });
+}
 
-document.querySelectorAll('.mobile-menu a').forEach(link => {
-  link.addEventListener('click', () => {
-    mobileMenu?.classList.remove('active');
-    mobileMenu?.setAttribute('aria-hidden', 'true');
+if (menuClose && mobileMenu) {
+  menuClose.addEventListener("click", () => {
+    mobileMenu.classList.remove("active");
+    mobileMenu.setAttribute("aria-hidden", "true");
+  });
+}
+
+$$(".mobile-menu a, .mobile-menu .js-open-booking").forEach(item => {
+  item.addEventListener("click", () => {
+    if (!mobileMenu) return;
+    mobileMenu.classList.remove("active");
+    mobileMenu.setAttribute("aria-hidden", "true");
   });
 });
 
 /* Booking modal */
+const bookingModal = $(".booking-modal");
+const openBookingButtons = $$(".js-open-booking");
+const closeBookingButtons = $$(".js-close-booking");
+
 function openBooking() {
-  bookingModal?.classList.add('active');
-  bookingModal?.setAttribute('aria-hidden', 'false');
-  document.body.style.overflow = 'hidden';
+  if (!bookingModal) return;
+  bookingModal.classList.add("active");
+  bookingModal.setAttribute("aria-hidden", "false");
+  document.body.style.overflow = "hidden";
 }
 
 function closeBooking() {
-  bookingModal?.classList.remove('active');
-  bookingModal?.setAttribute('aria-hidden', 'true');
-  document.body.style.overflow = '';
+  if (!bookingModal) return;
+  bookingModal.classList.remove("active");
+  bookingModal.setAttribute("aria-hidden", "true");
+  document.body.style.overflow = "";
 }
 
-openBookingButtons.forEach(btn => btn.addEventListener('click', openBooking));
-closeBookingButtons.forEach(btn => btn.addEventListener('click', closeBooking));
+openBookingButtons.forEach(btn => btn.addEventListener("click", openBooking));
+closeBookingButtons.forEach(btn => btn.addEventListener("click", closeBooking));
 
-/* Accordion */
-document.querySelectorAll('.accordion-btn').forEach(button => {
-  button.addEventListener('click', () => {
+/* FAQ accordion */
+$$(".accordion-btn").forEach(button => {
+  button.addEventListener("click", () => {
     const panel = button.nextElementSibling;
-    const isOpen = button.classList.toggle('open');
-    const icon = button.querySelector('span');
+    const isOpen = button.classList.toggle("active");
 
-    if (icon) icon.textContent = isOpen ? '−' : '+';
-    if (panel) panel.style.maxHeight = isOpen ? panel.scrollHeight + 'px' : null;
+    if (!panel) return;
+    if (isOpen) {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+      const icon = $("span", button);
+      if (icon) icon.textContent = "−";
+    } else {
+      panel.style.maxHeight = null;
+      const icon = $("span", button);
+      if (icon) icon.textContent = "+";
+    }
   });
 });
 
-/* CMS portfolio gallery */
-const fallbackGallery = [
+/* Reveal animation */
+const revealItems = $$(".section-reveal");
+if ("IntersectionObserver" in window) {
+  const revealObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  revealItems.forEach(item => revealObserver.observe(item));
+} else {
+  revealItems.forEach(item => item.classList.add("visible"));
+}
+
+/* =========================================================
+   Portfolio internal galleries
+   Data source: data/portfolio.json
+   Structure:
+   {
+     "galleries": [
+       {
+         "category": "Fine Line Detail",
+         "title": "Fine Line Detail",
+         "coverImage": "/img/uploads/cover.jpg",
+         "description": "...",
+         "images": [
+           { "image": "/img/uploads/1.jpg", "title": "...", "description": "..." }
+         ]
+       }
+     ]
+   }
+   ========================================================= */
+
+const portfolioGrid = $("#portfolioGrid");
+const galleryFilters = $$(".gallery-filter");
+
+const fallbackGalleries = [
   {
-    title: 'Black & Grey Piece',
-    category: 'Black & Grey Piece',
-    description: 'Soft shading, contrast, and clean black and grey detail.',
-    image: ''
+    category: "Black & Grey Piece",
+    title: "Black & Grey Piece",
+    description: "Custom black and grey tattoo work with contrast, softness, and detail.",
+    coverImage: "",
+    images: []
   },
   {
-    title: 'Fine Line Detail',
-    category: 'Fine Line Detail',
-    description: 'Delicate linework with a clean, minimal finish.',
-    image: ''
+    category: "Fine Line Detail",
+    title: "Fine Line Detail",
+    description: "Delicate fine line tattoo work focused on clean details and elegant placement.",
+    coverImage: "",
+    images: []
   },
   {
-    title: 'Micro Realism',
-    category: 'Micro Realism',
-    description: 'Small-scale realistic detail with precision and balance.',
-    image: ''
+    category: "Micro Realism",
+    title: "Micro Realism",
+    description: "Small-scale realistic tattoo work with precision and subtle contrast.",
+    coverImage: "",
+    images: []
   },
   {
-    title: 'Color',
-    category: 'Color',
-    description: 'Decorative composition created around flow and placement.',
-    image: ''
+    category: "Realism",
+    title: "Realism",
+    description: "Realistic custom tattoo compositions with depth, texture, and visual strength.",
+    coverImage: "",
+    images: []
+  },
+  {
+    category: "Color",
+    title: "Color",
+    description: "Color tattoo work designed with balance, composition, and personality.",
+    coverImage: "",
+    images: []
+  },
+  {
+    category: "Other",
+    title: "Other",
+    description: "Additional custom tattoo ideas and styles outside the main categories.",
+    coverImage: "",
+    images: []
   }
 ];
 
-let galleryData = [];
+let portfolioGalleries = [...fallbackGalleries];
+let activeFilter = "All";
+let activeGallery = null;
+let activeImageIndex = 0;
 
-function normalizeCategory(category) {
-  return String(category || '').trim().toLowerCase();
+function normalizePortfolioData(data) {
+  if (Array.isArray(data?.galleries)) return data.galleries;
+
+  /* Backward compatibility with older portfolio formats */
+  if (Array.isArray(data?.portfolio)) {
+    const grouped = {};
+    data.portfolio.forEach(item => {
+      const category = item.category || "Other";
+      if (!grouped[category]) {
+        grouped[category] = {
+          category,
+          title: item.title || category,
+          description: item.description || "",
+          coverImage: item.coverImage || item.image || "",
+          images: []
+        };
+      }
+
+      if (item.image) {
+        grouped[category].images.push({
+          image: item.image,
+          title: item.title || category,
+          description: item.description || ""
+        });
+      }
+    });
+
+    return Object.values(grouped);
+  }
+
+  return fallbackGalleries;
 }
 
-function renderGallery(filter = 'All') {
+function mergeWithFallback(galleries) {
+  return fallbackGalleries.map(defaultGallery => {
+    const found = galleries.find(g => g.category === defaultGallery.category);
+    return found ? {
+      ...defaultGallery,
+      ...found,
+      images: Array.isArray(found.images) ? found.images : []
+    } : defaultGallery;
+  });
+}
+
+function renderPortfolio() {
   if (!portfolioGrid) return;
 
-  const selected = normalizeCategory(filter);
-  const items = selected === 'all'
-    ? galleryData
-    : galleryData.filter(item => normalizeCategory(item.category) === selected);
+  const galleries = activeFilter === "All"
+    ? portfolioGalleries
+    : portfolioGalleries.filter(gallery => gallery.category === activeFilter);
 
-  if (!items.length) {
+  if (!galleries.length) {
     portfolioGrid.innerHTML = `
       <article class="portfolio-empty">
-        <h3>No images yet</h3>
-        <p>Add images for this style from the admin panel.</p>
+        <h3>No Gallery Found</h3>
+        <p>This style does not have an approved gallery yet.</p>
       </article>
     `;
     return;
   }
 
-  portfolioGrid.innerHTML = items.map((item, index) => {
-    const title = item.title || 'Custom Tattoo';
-    const category = item.category || 'Other';
-    const description = item.description || 'Custom tattoo work by Linz Tattoo.';
-    const image = item.image || '';
+  portfolioGrid.innerHTML = galleries.map((gallery, index) => {
+    const cover = gallery.coverImage || gallery.images?.[0]?.image || "";
+    const style = cover ? `style="background-image:url('${escapeHtml(cover)}')"` : "";
 
     return `
-      <button class="portfolio-card" type="button"
-        data-title="${escapeHtml(title)}"
-        data-category="${escapeHtml(category)}"
-        data-desc="${escapeHtml(description)}"
-        data-image="${escapeHtml(image)}">
-        <div class="portfolio-card-image"${image ? ` style="background-image: url('${escapeHtml(image)}')"` : ''}></div>
+      <article class="portfolio-card" role="button" tabindex="0" data-gallery-index="${portfolioGalleries.indexOf(gallery)}">
+        <div class="portfolio-card-image" ${style}></div>
         <div class="portfolio-card-info">
-          <span>${escapeHtml(category)}</span>
-          <h3>${escapeHtml(title)}</h3>
+          <span>${escapeHtml(gallery.category)}</span>
+          <h3>${escapeHtml(gallery.title || gallery.category)}</h3>
+          <p>${escapeHtml(gallery.description || "Open this style gallery.")}</p>
         </div>
-      </button>
+      </article>
     `;
-  }).join('');
+  }).join("");
 
-  document.querySelectorAll('.portfolio-card').forEach(card => {
-    card.addEventListener('click', () => openLightbox({
-      title: card.dataset.title,
-      category: card.dataset.category,
-      description: card.dataset.desc,
-      image: card.dataset.image
-    }));
+  $$(".portfolio-card", portfolioGrid).forEach(card => {
+    const open = () => {
+      const index = Number(card.dataset.galleryIndex);
+      openGallery(index, 0);
+    };
+
+    card.addEventListener("click", open);
+    card.addEventListener("keydown", event => {
+      if (event.key === "Enter" || event.key === " ") {
+        event.preventDefault();
+        open();
+      }
+    });
   });
-}
-
-function updateActiveFilter(activeButton) {
-  galleryFilters.forEach(button => button.classList.remove('active'));
-  activeButton.classList.add('active');
 }
 
 galleryFilters.forEach(button => {
-  button.addEventListener('click', () => {
-    updateActiveFilter(button);
-    renderGallery(button.dataset.filter || 'All');
+  button.addEventListener("click", () => {
+    galleryFilters.forEach(btn => btn.classList.remove("active"));
+    button.classList.add("active");
+    activeFilter = button.dataset.filter || "All";
+    renderPortfolio();
   });
 });
 
-async function loadGallery() {
-  try {
-    const response = await fetch('data/gallery.json', { cache: 'no-store' });
-    if (!response.ok) throw new Error('Gallery file not found');
+/* Gallery modal */
+const lightbox = $(".lightbox");
+const lightboxImage = $(".lightbox-image");
+const lightboxCategory = $(".lightbox-category");
+const lightboxTitle = $(".lightbox-content h3");
+const lightboxDescription = $(".lightbox-content p");
+const lightboxClose = $(".lightbox-close");
+const galleryPrev = $(".gallery-prev");
+const galleryNext = $(".gallery-next");
+const galleryCounter = $(".gallery-counter");
+const galleryThumbs = $(".gallery-thumbs");
 
-    const data = await response.json();
-    galleryData = Array.isArray(data.gallery) ? data.gallery : fallbackGallery;
-  } catch (error) {
-    galleryData = fallbackGallery;
+function getGalleryImages(gallery) {
+  const images = Array.isArray(gallery?.images) ? gallery.images.filter(item => item.image) : [];
+
+  if (images.length) return images;
+
+  if (gallery?.coverImage) {
+    return [{
+      image: gallery.coverImage,
+      title: gallery.title || gallery.category,
+      description: gallery.description || ""
+    }];
   }
 
-  renderGallery('All');
+  return [];
 }
 
-function openLightbox(item) {
-  if (!lightbox) return;
+function openGallery(galleryIndex, imageIndex = 0) {
+  activeGallery = portfolioGalleries[galleryIndex];
+  activeImageIndex = imageIndex;
 
-  if (lightboxTitle) lightboxTitle.textContent = item.title || 'Linz Tattoo';
-  if (lightboxText) lightboxText.textContent = item.description || 'Custom tattoo work.';
-  if (lightboxCategory) lightboxCategory.textContent = item.category || '';
+  if (!activeGallery || !lightbox) return;
+
+  lightbox.classList.add("active");
+  lightbox.setAttribute("aria-hidden", "false");
+  document.body.style.overflow = "hidden";
+
+  renderActiveGalleryImage();
+}
+
+function closeGallery() {
+  if (!lightbox) return;
+  lightbox.classList.remove("active");
+  lightbox.setAttribute("aria-hidden", "true");
+  document.body.style.overflow = "";
+}
+
+function renderActiveGalleryImage() {
+  if (!activeGallery) return;
+
+  const images = getGalleryImages(activeGallery);
+  const hasImages = images.length > 0;
+  const current = hasImages ? images[activeImageIndex] : null;
+
+  if (lightboxCategory) lightboxCategory.textContent = activeGallery.category || "";
+  if (lightboxTitle) lightboxTitle.textContent = current?.title || activeGallery.title || activeGallery.category || "";
+  if (lightboxDescription) {
+    lightboxDescription.textContent = current?.description || activeGallery.description || "This gallery is ready for images from the admin panel.";
+  }
 
   if (lightboxImage) {
-    if (item.image) {
-      lightboxImage.src = item.image;
-      lightboxImage.alt = item.title || 'Tattoo portfolio image';
-      lightboxImage.style.display = 'block';
+    if (current?.image) {
+      lightboxImage.src = current.image;
+      lightboxImage.alt = current.title || activeGallery.title || activeGallery.category || "Tattoo gallery image";
+      lightboxImage.style.display = "block";
     } else {
-      lightboxImage.removeAttribute('src');
-      lightboxImage.alt = '';
-      lightboxImage.style.display = 'none';
+      lightboxImage.removeAttribute("src");
+      lightboxImage.alt = "";
+      lightboxImage.style.display = "none";
     }
   }
 
-  lightbox.classList.add('active');
-  lightbox.setAttribute('aria-hidden', 'false');
-}
-
-function closeLightbox() {
-  lightbox?.classList.remove('active');
-  lightbox?.setAttribute('aria-hidden', 'true');
-}
-
-lightboxClose?.addEventListener('click', closeLightbox);
-lightbox?.addEventListener('click', event => {
-  if (event.target === lightbox) closeLightbox();
-});
-
-document.addEventListener('keydown', event => {
-  if (event.key === 'Escape') {
-    closeBooking();
-    closeLightbox();
-    mobileMenu?.classList.remove('active');
+  if (galleryCounter) {
+    galleryCounter.textContent = hasImages ? `${activeImageIndex + 1} / ${images.length}` : "No images uploaded yet";
   }
-});
 
-function escapeHtml(value) {
-  return String(value || '')
-    .replaceAll('&', '&amp;')
-    .replaceAll('"', '&quot;')
-    .replaceAll("'", '&#039;')
-    .replaceAll('<', '&lt;')
-    .replaceAll('>', '&gt;');
+  if (galleryPrev) galleryPrev.style.display = images.length > 1 ? "flex" : "none";
+  if (galleryNext) galleryNext.style.display = images.length > 1 ? "flex" : "none";
+
+  if (galleryThumbs) {
+    galleryThumbs.innerHTML = images.map((item, index) => `
+      <button class="gallery-thumb ${index === activeImageIndex ? "active" : ""}" type="button" data-thumb-index="${index}" aria-label="Open image ${index + 1}">
+        <img src="${escapeHtml(item.image)}" alt="">
+      </button>
+    `).join("");
+
+    $$(".gallery-thumb", galleryThumbs).forEach(thumb => {
+      thumb.addEventListener("click", () => {
+        activeImageIndex = Number(thumb.dataset.thumbIndex);
+        renderActiveGalleryImage();
+      });
+    });
+  }
 }
 
-/* Reveal animation */
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      revealObserver.unobserve(entry.target);
-    }
+function showNextImage() {
+  if (!activeGallery) return;
+  const images = getGalleryImages(activeGallery);
+  if (images.length <= 1) return;
+
+  activeImageIndex = (activeImageIndex + 1) % images.length;
+  renderActiveGalleryImage();
+}
+
+function showPrevImage() {
+  if (!activeGallery) return;
+  const images = getGalleryImages(activeGallery);
+  if (images.length <= 1) return;
+
+  activeImageIndex = (activeImageIndex - 1 + images.length) % images.length;
+  renderActiveGalleryImage();
+}
+
+if (lightboxClose) lightboxClose.addEventListener("click", closeGallery);
+if (galleryNext) galleryNext.addEventListener("click", showNextImage);
+if (galleryPrev) galleryPrev.addEventListener("click", showPrevImage);
+
+if (lightbox) {
+  lightbox.addEventListener("click", event => {
+    if (event.target === lightbox) closeGallery();
   });
-}, { threshold: 0.14 });
+}
 
-document.querySelectorAll('.section-reveal').forEach(section => revealObserver.observe(section));
+document.addEventListener("keydown", event => {
+  if (!lightbox?.classList.contains("active")) return;
 
-loadGallery();
+  if (event.key === "Escape") closeGallery();
+  if (event.key === "ArrowRight") showNextImage();
+  if (event.key === "ArrowLeft") showPrevImage();
+});
 
+async function loadPortfolioGalleries() {
+  try {
+    const response = await fetch("data/portfolio.json", { cache: "no-store" });
+    if (!response.ok) throw new Error("Portfolio data not found");
+
+    const data = await response.json();
+    portfolioGalleries = mergeWithFallback(normalizePortfolioData(data));
+  } catch (error) {
+    portfolioGalleries = [...fallbackGalleries];
+  }
+
+  renderPortfolio();
+}
+
+loadPortfolioGalleries();
 
 /* Approved client reviews */
-const reviewsList = document.querySelector('#reviewsList');
+const reviewsList = $("#reviewsList");
 
 function renderStars(rating) {
   const safeRating = Math.max(1, Math.min(5, Number(rating) || 5));
-  return '★'.repeat(safeRating) + '☆'.repeat(5 - safeRating);
+  return "★".repeat(safeRating) + "☆".repeat(5 - safeRating);
 }
 
 function renderReviews(reviews = []) {
@@ -290,19 +487,19 @@ function renderReviews(reviews = []) {
   reviewsList.innerHTML = approvedReviews.map(review => `
     <article class="review-card">
       <span class="review-stars">${escapeHtml(renderStars(review.rating))}</span>
-      <p>“${escapeHtml(review.review || '')}”</p>
-      <strong>${escapeHtml(review.name || 'Client')}</strong>
-      ${review.style ? `<small>${escapeHtml(review.style)}</small>` : ''}
+      <p>“${escapeHtml(review.review || "")}”</p>
+      <strong>${escapeHtml(review.name || "Client")}</strong>
+      ${review.style ? `<small>${escapeHtml(review.style)}</small>` : ""}
     </article>
-  `).join('');
+  `).join("");
 }
 
 async function loadReviews() {
   if (!reviewsList) return;
 
   try {
-    const response = await fetch('data/reviews.json', { cache: 'no-store' });
-    if (!response.ok) throw new Error('Reviews file not found');
+    const response = await fetch("data/reviews.json", { cache: "no-store" });
+    if (!response.ok) throw new Error("Reviews file not found");
 
     const data = await response.json();
     const reviews = Array.isArray(data.reviews) ? data.reviews : [];

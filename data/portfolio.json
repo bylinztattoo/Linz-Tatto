@@ -1,40 +1,46 @@
 {
-  "portfolio": [
+  "galleries": [
     {
       "category": "Black & Grey Piece",
       "title": "Black & Grey Piece",
       "description": "Custom black and grey tattoo work with contrast, softness, and detail.",
-      "image": ""
+      "coverImage": "",
+      "images": []
     },
     {
       "category": "Fine Line Detail",
       "title": "Fine Line Detail",
       "description": "Delicate fine line tattoo work focused on clean details and elegant placement.",
-      "image": ""
+      "coverImage": "",
+      "images": []
     },
     {
       "category": "Micro Realism",
       "title": "Micro Realism",
       "description": "Small-scale realistic tattoo work with precision and subtle contrast.",
-      "image": ""
+      "coverImage": "",
+      "images": []
     },
     {
       "category": "Realism",
       "title": "Realism",
       "description": "Realistic custom tattoo compositions with depth, texture, and visual strength.",
-      "image": ""
+      "coverImage": "",
+      "images": []
     },
     {
       "category": "Color",
       "title": "Color",
       "description": "Color tattoo work designed with balance, composition, and personality.",
-      "image": ""
+      "coverImage": "",
+      "images": []
     },
     {
       "category": "Other",
       "title": "Other",
       "description": "Additional custom tattoo ideas and styles outside the main categories.",
-      "image": ""
+      "coverImage": "",
+      "images": []
     }
   ]
 }
