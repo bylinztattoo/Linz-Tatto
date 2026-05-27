@@ -93,13 +93,13 @@ document.querySelectorAll('.accordion-btn').forEach(button => {
 const fallbackGallery = [
   {
     title: 'Black & Grey Piece',
-    category: 'Black & Grey',
+    category: 'Black & Grey Piece',
     description: 'Soft shading, contrast, and clean black and grey detail.',
     image: ''
   },
   {
     title: 'Fine Line Detail',
-    category: 'Fine Line',
+    category: 'Fine Line Detail',
     description: 'Delicate linework with a clean, minimal finish.',
     image: ''
   },
@@ -110,8 +110,8 @@ const fallbackGallery = [
     image: ''
   },
   {
-    title: 'Ornamental Design',
-    category: 'Ornamental',
+    title: 'Color',
+    category: 'Color',
     description: 'Decorative composition created around flow and placement.',
     image: ''
   }
@@ -143,7 +143,7 @@ function renderGallery(filter = 'All') {
 
   portfolioGrid.innerHTML = items.map((item, index) => {
     const title = item.title || 'Custom Tattoo';
-    const category = item.category || 'Custom';
+    const category = item.category || 'Other';
     const description = item.description || 'Custom tattoo work by Linz Tattoo.';
     const image = item.image || '';
 
@@ -261,3 +261,55 @@ const revealObserver = new IntersectionObserver((entries) => {
 document.querySelectorAll('.section-reveal').forEach(section => revealObserver.observe(section));
 
 loadGallery();
+
+
+/* Approved client reviews */
+const reviewsList = document.querySelector('#reviewsList');
+
+function renderStars(rating) {
+  const safeRating = Math.max(1, Math.min(5, Number(rating) || 5));
+  return '★'.repeat(safeRating) + '☆'.repeat(5 - safeRating);
+}
+
+function renderReviews(reviews = []) {
+  if (!reviewsList) return;
+
+  const approvedReviews = reviews.filter(review => review.approved === true);
+
+  if (!approvedReviews.length) {
+    reviewsList.innerHTML = `
+      <article class="review-card review-placeholder">
+        <span class="review-stars">★★★★★</span>
+        <p>Approved client reviews will appear here.</p>
+        <strong>Linz Tattoo</strong>
+      </article>
+    `;
+    return;
+  }
+
+  reviewsList.innerHTML = approvedReviews.map(review => `
+    <article class="review-card">
+      <span class="review-stars">${escapeHtml(renderStars(review.rating))}</span>
+      <p>“${escapeHtml(review.review || '')}”</p>
+      <strong>${escapeHtml(review.name || 'Client')}</strong>
+      ${review.style ? `<small>${escapeHtml(review.style)}</small>` : ''}
+    </article>
+  `).join('');
+}
+
+async function loadReviews() {
+  if (!reviewsList) return;
+
+  try {
+    const response = await fetch('data/reviews.json', { cache: 'no-store' });
+    if (!response.ok) throw new Error('Reviews file not found');
+
+    const data = await response.json();
+    const reviews = Array.isArray(data.reviews) ? data.reviews : [];
+    renderReviews(reviews);
+  } catch (error) {
+    renderReviews([]);
+  }
+}
+
+loadReviews();

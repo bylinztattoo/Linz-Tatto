@@ -44,15 +44,40 @@ collections:
                 name: "category"
                 widget: "select"
                 options:
-                  - "Black & Grey"
-                  - "Fine Line"
+                  - "Black & Grey Piece"
+                  - "Fine Line Detail"
                   - "Micro Realism"
                   - "Realism"
-                  - "Ornamental"
                   - "Color"
-                  - "Blackwork"
-                  - "Custom"
+                  - "Color"
+                  - "Other"
+                  - "Other"
                   - "Process"
               - { label: "Description", name: "description", widget: "text", required: false }
               - { label: "Image", name: "image", widget: "image" }
               - { label: "Featured", name: "featured", widget: "boolean", required: false, default: false }
+
+
+  - name: "reviews"
+    label: "Client Reviews"
+    files:
+      - label: "Approved Reviews"
+        name: "reviews"
+        file: "data/reviews.json"
+        fields:
+          - label: "Reviews"
+            name: "reviews"
+            widget: "list"
+            summary: "{{fields.name}} — {{fields.rating}} Stars"
+            fields:
+              - { label: "Approved / Publish on Website", name: "approved", widget: "boolean", default: false }
+              - { label: "Client Name", name: "name", widget: "string" }
+              - label: "Rating"
+                name: "rating"
+                widget: "select"
+                options:
+                  - { label: "5 Stars", value: 5 }
+                  - { label: "4 Stars", value: 4 }
+                  - { label: "3 Stars", value: 3 }
+              - { label: "Tattoo Style", name: "style", widget: "string", required: false }
+              - { label: "Review", name: "review", widget: "text" }

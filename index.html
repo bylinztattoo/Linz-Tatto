@@ -15,13 +15,26 @@
   <div class="noise"></div>
 
   <header class="site-header" id="top">
-  <nav class="desktop-nav" aria-label="Main navigation">
+    <nav class="desktop-nav" aria-label="Main navigation">
     <a href="#about">Artist</a>
     <a href="#work">Work</a>
     <a href="#process">Process</a>
     <a href="#faq">FAQ</a>
+    <a href="#reviews">Reviews</a>
+
+    <div class="social-dropdown">
+      <button class="social-dropdown-toggle" type="button" aria-label="Open social media links">
+        Social Media
+        <span>⌄</span>
+      </button>
+      <div class="social-dropdown-menu" aria-label="Social media links">
+        <a href="https://www.instagram.com/linz.tattoo?igsh=MW1vZnFheXp6Ymo3YQ%3D%3D&utm_source=qr" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.facebook.com/share/1HAeLeh33q/?mibextid=wwXIfr" target="_blank" rel="noopener">Facebook</a>
+        <a href="https://www.tiktok.com/@linztattoo?_r=1&_t=ZT-96h69r9gxLi" target="_blank" rel="noopener">TikTok</a>
+      </div>
+    </div>
+
     <button class="btn btn-gold js-open-booking" type="button">Book Now</button>
-    <a class="ig-link" href="https://www.instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">◎</a>
   </nav>
 
   <button class="menu-toggle" type="button" aria-label="Open menu">
@@ -37,6 +50,13 @@
   <a href="#work">Work</a>
   <a href="#process">Process</a>
   <a href="#faq">FAQ</a>
+  <a href="#reviews">Reviews</a>
+    <div class="mobile-social" aria-label="Social media links">
+    <span>Social Media</span>
+    <a href="https://www.instagram.com/linz.tattoo?igsh=MW1vZnFheXp6Ymo3YQ%3D%3D&utm_source=qr" target="_blank" rel="noopener">Instagram</a>
+    <a href="https://www.facebook.com/share/1HAeLeh33q/?mibextid=wwXIfr" target="_blank" rel="noopener">Facebook</a>
+    <a href="https://www.tiktok.com/@linztattoo?_r=1&_t=ZT-96h69r9gxLi" target="_blank" rel="noopener">TikTok</a>
+  </div>
   <button class="btn btn-gold js-open-booking" type="button">Book Now</button>
 </aside>
 
@@ -56,7 +76,6 @@
     </div>
 
     <div class="artist-bio-box">
-      <p class="script-text">custom delicate tattoos</p>
       <h2>Meet the Artist</h2>
       <p>
         I’m Ailin, a Cuban tattoo artist based in Savannah, Georgia, currently creating at the renowned Tramp Art Studios.
@@ -99,30 +118,7 @@
         </div>
       </div>
     </section>
-
-    <section class="artist section-reveal">
-      <div class="container artist-grid">
-        <div class="artist-copy">
-          <p class="small-line">About the Artist</p>
-          <h2>Every piece, <span>unique</span></h2>
-          <p>The process begins by listening to your idea, understanding the meaning behind the tattoo, and evaluating the ideal placement. Then, a visual proposal is developed around your anatomy, style, and desired level of detail.</p>
-          <p>The goal is for every session to feel professional, safe, and clear: from the first consultation to aftercare guidance.</p>
-        </div>
-        <div class="artist-cards">
-          <article class="photo-card photo-card-1">
-            <span>Studio session</span>
-          </article>
-          <article class="photo-card photo-card-2">
-            <span>Portrait / artist</span>
-          </article>
-          <article class="photo-card photo-card-3">
-            <span>Detail work</span>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="work section-reveal" id="work">
+<section class="work section-reveal" id="work">
       <div class="work-heading">
         <p class="small-line">Portfolio by Style</p>
         <h2>Custom<br><span>Gallery</span></h2>
@@ -133,22 +129,20 @@
 
       <div class="gallery-controls" aria-label="Tattoo style filters">
         <button class="gallery-filter active" type="button" data-filter="All">All</button>
-        <button class="gallery-filter" type="button" data-filter="Black & Grey">Black & Grey</button>
-        <button class="gallery-filter" type="button" data-filter="Fine Line">Fine Line</button>
+        <button class="gallery-filter" type="button" data-filter="Black & Grey Piece">Black & Grey Piece</button>
+        <button class="gallery-filter" type="button" data-filter="Fine Line Detail">Fine Line Detail</button>
         <button class="gallery-filter" type="button" data-filter="Micro Realism">Micro Realism</button>
         <button class="gallery-filter" type="button" data-filter="Realism">Realism</button>
-        <button class="gallery-filter" type="button" data-filter="Ornamental">Ornamental</button>
         <button class="gallery-filter" type="button" data-filter="Color">Color</button>
-        <button class="gallery-filter" type="button" data-filter="Blackwork">Blackwork</button>
-        <button class="gallery-filter" type="button" data-filter="Custom">Custom</button>
+        <button class="gallery-filter" type="button" data-filter="Other">Other</button>
       </div>
 
       <div class="portfolio-grid" id="portfolioGrid" aria-live="polite">
         <article class="portfolio-card is-placeholder">
           <div class="portfolio-card-image"></div>
           <div class="portfolio-card-info">
-            <span>Black & Grey</span>
-            <h3>Gallery loading...</h3>
+            <span>Black & Grey Piece</span>
+            <h3>Black & Grey Piece</h3>
           </div>
         </article>
       </div>
@@ -180,8 +174,8 @@
 
     <section class="booking-cta section-reveal">
       <div class="container cta-box">
-        <h2>Book Your Next Work of Art</h2>
-        <p>Complete the form with your idea, preferred placement, estimated budget, and references. We will reply with availability, price guidance, and next steps.</p>
+        <h2>Let’s Bring Your Vision to Life</h2>
+        <p>Complete the form with your idea, preferred placement, estimated size, budget range, and reference images. Once submitted, I will review your request and get back to you with availability, pricing, and next steps.</p>
         <button class="btn btn-gold js-open-booking" type="button">Open Form</button>
       </div>
     </section>
@@ -193,25 +187,22 @@
           <h2>Before You Book</h2>
         </div>
         <div class="accordion">
-          <button class="accordion-btn">Deposit & Booking Policy<span>+</span></button>
+          <button class="accordion-btn">Deposit &amp; Booking Policy<span>+</span></button>
           <div class="accordion-panel">
             <p>
-              A $100 non-refundable deposit is required to book your tattoo appointment.
-              Your deposit will be applied toward the final price of your tattoo on the day of your session.
+              A non-refundable $100 deposit is required to secure your appointment.
+              The deposit will be applied toward the final cost of your tattoo.
             </p>
             <p>
-              After your appointment details are confirmed, we will text you a secure link to pay your deposit and finalize your booking.
-              You may also call the shop during business hours to place your deposit over the phone with a card: (912) 349-3195.
+              Once availability is confirmed and we’ve discussed your idea, a payment link will be sent to finalize your booking.
+              You may also place your deposit over the phone using a card during business hours.
             </p>
             <p>
-              If you need to reschedule, a minimum 48-hour notice is required.
-              With proper notice, your appointment can be rescheduled or your deposit can be placed on a “To Be Determined” list.
-              Deposits on the TBD list are saved for up to one year from your original appointment date.
+              A minimum of 48 hours notice is required to reschedule.
+              With proper notice, your deposit may be transferred to a new date or placed on a “To Be Determined” (TBD) list.
             </p>
             <p>
-              Please bring a valid photo ID showing that you are 18 years of age or older.
-              Accepted forms of ID include a driver’s license, passport, carry license, or other valid government-issued photo identification.
-              No one under the age of 18 is allowed inside the studio.
+              Deposits on the TBD list remain valid for up to one year from the original appointment date.
             </p>
           </div>
           <button class="accordion-btn">Tattoo Aftercare<span>+</span></button>
@@ -240,18 +231,128 @@
               Thank you for trusting me with your skin.
             </p>
           </div>
-          <button class="accordion-btn">Can I send references?<span>+</span></button>
-          <div class="accordion-panel"><p>Yes. The form allows you to upload reference images and a photo of the body area to better plan the design.</p></div>
-          <button class="accordion-btn">Do you create custom designs?<span>+</span></button>
-          <div class="accordion-panel"><p>Yes. Every proposal is adapted to your concept, size, placement, budget, and desired visual style.</p></div>
+          <button class="accordion-btn">Tattoo Pricing<span>+</span></button>
+          <div class="accordion-panel">
+            <p>
+              Each tattoo is a custom piece of art, and pricing is based on several factors to ensure fair value for both the design and the detail involved.
+            </p>
+            <p>My rates are determined by:</p>
+            <ul class="aftercare-list">
+              <li>Size of the tattoo</li>
+              <li>Level of detail and complexity</li>
+              <li>Style of the piece, such as fine line, realism, black &amp; grey, color, and more</li>
+              <li>Placement on the body</li>
+              <li>Whether the design is fully custom or based on a concept</li>
+            </ul>
+            <p>
+              All tattoos are priced per piece, not by generic estimates, to ensure clarity and fairness for each project.
+            </p>
+            <p>
+              Because every tattoo is unique, I provide a final quote once I have reviewed your idea, references, and placement.
+            </p>
+            <p>
+              For larger or more detailed projects, pricing may be broken down into sessions depending on the scale of the work.
+            </p>
+            <p>
+              If you’re unsure about budget, feel free to reach out — I’ll always guide you toward the best option for your idea.
+            </p>
+          </div>
+
+          <button class="accordion-btn">How should I prepare for my appointment?<span>+</span></button>
+          <div class="accordion-panel">
+            <p>
+              Get a good night’s sleep, eat before your session, stay hydrated, and avoid alcohol or blood-thinning substances before your appointment.
+            </p>
+          </div>
+
+          <button class="accordion-btn">Do you accept walk-ins?<span>+</span></button>
+          <div class="accordion-panel">
+            <p>
+              Yes, I do accept walk-ins depending on availability. However, I highly recommend booking an appointment in advance to ensure dedicated time for your design and tattoo session.
+            </p>
+            <p>
+              Custom and larger pieces are always prioritized through scheduled appointments.
+            </p>
+          </div>
         </div>
       </div>
     </section>
+    <section class="reviews section-reveal" id="reviews">
+      <div class="container reviews-grid">
+        <div class="reviews-heading">
+          <p class="small-line">Client Reviews</p>
+          <h2>Real Experiences</h2>
+          <p>
+            Share your experience with Linz Tattoo. Reviews are submitted for approval and only published after they are reviewed by the admin.
+          </p>
+        </div>
+
+        <div class="reviews-content">
+          <div class="reviews-list" id="reviewsList" aria-live="polite">
+            <article class="review-card review-placeholder">
+              <span class="review-stars">★★★★★</span>
+              <p>Approved client reviews will appear here.</p>
+              <strong>Linz Tattoo</strong>
+            </article>
+          </div>
+
+          <form class="review-form" action="https://formsubmit.co/bylinztattoo@gmail.com" method="POST">
+            <input type="hidden" name="_subject" value="New review submission for Linz Tattoo approval">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_next" value="https://linztatto.netlify.app/#reviews">
+
+            <h3>Leave a Review</h3>
+            <p>Your review will be sent to the admin for approval before it appears on the website.</p>
+
+            <label>Full Name
+              <input type="text" name="Reviewer Name" placeholder="Your name" required>
+            </label>
+
+            <label>Rating
+              <select name="Rating" required>
+                <option value="">Select rating</option>
+                <option value="5">★★★★★ — 5 Stars</option>
+                <option value="4">★★★★☆ — 4 Stars</option>
+                <option value="3">★★★☆☆ — 3 Stars</option>
+              </select>
+            </label>
+
+            <label>Tattoo Style <small>(optional)</small>
+              <input type="text" name="Tattoo Style" placeholder="Fine line, micro realism, black & grey...">
+            </label>
+
+            <label class="full">Your Review
+              <textarea name="Review" placeholder="Write your experience..." required></textarea>
+            </label>
+
+            <label class="review-consent full">
+              <input type="checkbox" name="Permission to Publish" value="Yes" required>
+              <span>I authorize Linz Tattoo to publish my review after approval.</span>
+            </label>
+
+            <button class="btn btn-gold submit-btn" type="submit">Submit Review</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <footer class="site-footer">
     <div class="container footer-grid">
       <p>© <span id="year"></span> Linz Tattoo. All rights reserved.</p>
+      <div class="footer-social social-links" aria-label="Social media links">
+        <a href="https://www.instagram.com/linz.tattoo?igsh=MW1vZnFheXp6Ymo3YQ%3D%3D&utm_source=qr" target="_blank" rel="noopener" aria-label="Instagram">
+          <span>Instagram</span>
+        </a>
+        <a href="https://www.facebook.com/share/1HAeLeh33q/?mibextid=wwXIfr" target="_blank" rel="noopener" aria-label="Facebook">
+          <span>Facebook</span>
+        </a>
+        <a href="https://www.tiktok.com/@linztattoo?_r=1&_t=ZT-96h69r9gxLi" target="_blank" rel="noopener" aria-label="TikTok">
+          <span>TikTok</span>
+        </a>
+      </div>
       <button class="btn btn-gold js-open-booking" type="button">Book Now</button>
     </div>
   </footer>
