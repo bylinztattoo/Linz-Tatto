@@ -1,17 +1,10 @@
 {
   "gallery": [
     {
-      "title": "Black & Grey Piece",
-      "category": "Black & Grey",
-      "description": "Soft shading, contrast, and clean black and grey detail.",
-      "image": "/img/uploads/black-grey-sample.jpg",
-      "featured": true
-    },
-    {
       "title": "Fine Line Detail",
       "category": "Fine Line",
       "description": "Delicate linework with a clean, minimal finish.",
-      "image": "/img/uploads/fine-line-sample.jpg",
+      "image": "/img/uploads/img_0504.jpeg",
       "featured": true
     },
     {
@@ -20,6 +13,13 @@
       "description": "Small-scale realistic detail with precision and balance.",
       "image": "/img/uploads/micro-realism-sample.jpg",
       "featured": false
+    },
+    {
+      "title": "Black & Grey Piece",
+      "category": "Black & Grey",
+      "description": "Soft shading, contrast, and clean black and grey detail.",
+      "image": "/img/uploads/black-grey-sample.jpg",
+      "featured": true
     },
     {
       "title": "Ornamental Design",
