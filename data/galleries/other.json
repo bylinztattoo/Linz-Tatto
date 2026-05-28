@@ -1,7 +1,23 @@
 {
   "title": "Other",
   "category": "Other",
-  "coverImage": "",
+  "coverImage": "/img/uploads/8.jpg",
   "description": "Additional custom tattoo ideas and styles outside the main categories.",
-  "images": []
+  "images": [
+    {
+      "image": "/img/uploads/0375ca3b-869f-4067-b092-255ef08d9efd.jpg"
+    },
+    {
+      "image": "/img/uploads/c75b200b-6d93-4e27-8093-f97bf45f95bf.jpg"
+    },
+    {
+      "image": "/img/uploads/3dc90a72-5020-45c5-a868-b66e158bb9da.jpg"
+    },
+    {
+      "image": "/img/uploads/d5379d1b-c85c-4c39-9d8e-cd67c8de4537.jpg"
+    },
+    {
+      "image": "/img/uploads/5d965fa0-e1bb-4a00-8db8-51cd71d5a4c7.jpg"
+    }
+  ]
 }
