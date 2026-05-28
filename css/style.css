@@ -2320,3 +2320,105 @@ button {
     font-size: 16px !important;
   }
 }
+
+/* =========================================================
+   Portfolio Cards Balanced Sizing
+   Smaller, cleaner typography so every card fits evenly
+   ========================================================= */
+
+/* Safer internal padding for all gallery cards */
+.portfolio-grid .portfolio-card {
+  overflow: hidden !important;
+  min-height: clamp(320px, 28vw, 420px) !important;
+}
+
+.portfolio-grid .portfolio-card-info {
+  left: clamp(24px, 2.1vw, 40px) !important;
+  right: clamp(24px, 2.1vw, 40px) !important;
+  bottom: clamp(24px, 2.1vw, 38px) !important;
+  width: auto !important;
+  max-width: calc(100% - 48px) !important;
+  overflow: hidden !important;
+  gap: 10px !important;
+}
+
+/* Hide duplicate rose label on cards. The label stays inside the modal/gallery. */
+.portfolio-grid .portfolio-card-info > span {
+  display: none !important;
+}
+
+/* Smaller titles for a more premium and consistent grid */
+.portfolio-grid .portfolio-card-info h3 {
+  max-width: 100% !important;
+  margin: 0 !important;
+  font-family: var(--font-body, 'Inter', system-ui, sans-serif) !important;
+  font-size: clamp(30px, 2.45vw, 46px) !important;
+  line-height: 0.98 !important;
+  letter-spacing: 0.075em !important;
+  text-transform: uppercase !important;
+  white-space: normal !important;
+  word-break: normal !important;
+  overflow-wrap: normal !important;
+  hyphens: none !important;
+}
+
+/* BlackWork is one long word, so it needs a slightly smaller size */
+.portfolio-grid .portfolio-card[data-category="BlackWork"] .portfolio-card-info h3 {
+  font-size: clamp(27px, 2.05vw, 38px) !important;
+  letter-spacing: 0.06em !important;
+}
+
+/* Fine-tune the description so it doesn't overpower the title */
+.portfolio-grid .portfolio-card-info p {
+  max-width: 92% !important;
+  margin: 0 !important;
+  font-family: var(--font-body, 'Inter', system-ui, sans-serif) !important;
+  font-size: clamp(15px, 1vw, 18px) !important;
+  line-height: 1.45 !important;
+  font-weight: 300 !important;
+  color: rgba(255, 255, 255, 0.66) !important;
+}
+
+/* Keep the grid visually balanced */
+.portfolio-grid {
+  align-items: stretch !important;
+}
+
+/* Tablet */
+@media (max-width: 1200px) {
+  .portfolio-grid .portfolio-card-info h3 {
+    font-size: clamp(28px, 3.3vw, 42px) !important;
+    letter-spacing: 0.06em !important;
+  }
+
+  .portfolio-grid .portfolio-card[data-category="BlackWork"] .portfolio-card-info h3 {
+    font-size: clamp(25px, 3vw, 36px) !important;
+  }
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .portfolio-grid .portfolio-card {
+    min-height: 300px !important;
+  }
+
+  .portfolio-grid .portfolio-card-info {
+    left: 22px !important;
+    right: 22px !important;
+    bottom: 24px !important;
+    max-width: calc(100% - 44px) !important;
+  }
+
+  .portfolio-grid .portfolio-card-info h3 {
+    font-size: clamp(28px, 9vw, 38px) !important;
+  }
+
+  .portfolio-grid .portfolio-card[data-category="BlackWork"] .portfolio-card-info h3 {
+    font-size: clamp(25px, 8vw, 34px) !important;
+  }
+
+  .portfolio-grid .portfolio-card-info p {
+    font-size: 15px !important;
+    line-height: 1.42 !important;
+  }
+}

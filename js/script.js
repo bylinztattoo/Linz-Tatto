@@ -276,7 +276,7 @@ function renderPortfolio() {
     const style = cover ? `style="background-image:url('${escapeHtml(cover)}')"` : "";
 
     return `
-      <article class="portfolio-card" role="button" tabindex="0" data-gallery-index="${portfolioGalleries.indexOf(gallery)}">
+      <article class="portfolio-card" role="button" tabindex="0" data-gallery-index="${portfolioGalleries.indexOf(gallery)}" data-category="${escapeHtml(gallery.category)}">
         <div class="portfolio-card-image" ${style}></div>
         <div class="portfolio-card-info">
           <span>${escapeHtml(gallery.category)}</span>
