@@ -2422,32 +2422,121 @@ button {
     line-height: 1.42 !important;
   }
 }
+
 /* =========================================================
-   FINAL MOBILE RESPONSIVE FIXES
-   Controls logo, titles and text sizes on mobile
+   Final Section Kicker Style
+   Unified premium style for small section labels:
+   HOW WE WORK, PORTFOLIO BY STYLE, BOOKING POLICY, etc.
    ========================================================= */
 
+/* Main small labels used across sections */
+.small-line,
+.eyebrow,
+.section-kicker,
+.work-heading .small-line,
+.portfolio-heading .small-line,
+.portfolio-heading .eyebrow,
+.faq-copy .small-line,
+.booking-policy-copy .small-line,
+.reviews-heading .small-line,
+.cta-box .small-line {
+  font-family: var(--font-body, 'Inter', system-ui, sans-serif) !important;
+  font-size: clamp(13px, 0.95vw, 16px) !important;
+  font-weight: 500 !important;
+  line-height: 1.2 !important;
+  letter-spacing: 0.42em !important;
+  text-transform: uppercase !important;
+  color: rgba(201, 143, 122, 0.96) !important;
+  opacity: 0.96 !important;
+  margin-bottom: 18px !important;
+}
+
+/* More polished spacing for the Portfolio and Process section labels */
+.work-heading .small-line,
+.portfolio-heading .small-line,
+.portfolio-heading .eyebrow {
+  display: block !important;
+  margin-bottom: 16px !important;
+}
+
+/* Mobile: keep the same elegant look but avoid excessive width */
+@media (max-width: 768px) {
+  .small-line,
+  .eyebrow,
+  .section-kicker,
+  .work-heading .small-line,
+  .portfolio-heading .small-line,
+  .portfolio-heading .eyebrow,
+  .faq-copy .small-line,
+  .booking-policy-copy .small-line,
+  .reviews-heading .small-line,
+  .cta-box .small-line {
+    font-size: 12px !important;
+    letter-spacing: 0.34em !important;
+    margin-bottom: 14px !important;
+  }
+}
+
+/* Extra small phones */
+@media (max-width: 430px) {
+  .small-line,
+  .eyebrow,
+  .section-kicker,
+  .work-heading .small-line,
+  .portfolio-heading .small-line,
+  .portfolio-heading .eyebrow,
+  .faq-copy .small-line,
+  .booking-policy-copy .small-line,
+  .reviews-heading .small-line,
+  .cta-box .small-line {
+    font-size: 11px !important;
+    letter-spacing: 0.28em !important;
+  }
+}
+
+/* =========================================================
+   Hero Logo Spacing Fix
+   Keeps "Tattoo" elegant without sitting too much on top of "LINZ"
+   ========================================================= */
+
+.hero-logo {
+  gap: 0 !important;
+}
+
+.hero-logo .logo-linz {
+  line-height: 0.86 !important;
+  margin-bottom: 0 !important;
+}
+
+.hero-logo .logo-tattoo {
+  margin-top: -0.04em !important;
+  padding-left: 0.02em !important;
+  line-height: 0.86 !important;
+}
+
+/* Desktop balance */
+@media (min-width: 769px) {
+  .hero-logo .logo-tattoo {
+    transform: translateY(0) !important;
+  }
+}
+
+/* Mobile balance */
 @media (max-width: 768px) {
   .hero-logo .logo-linz {
-    font-size: clamp(64px, 18vw, 92px);
-    line-height: 0.78;
+    line-height: 0.88 !important;
   }
 
   .hero-logo .logo-tattoo {
-    font-size: clamp(76px, 21vw, 112px);
-    line-height: 0.78;
-    margin-top: -0.18em;
+    margin-top: -0.02em !important;
+    line-height: 0.86 !important;
+    padding-left: 0.01em !important;
   }
+}
 
-  .hero-tagline {
-    font-size: clamp(22px, 6vw, 31px);
-    line-height: 1.25;
-    max-width: 330px;
-  }
-
-  .artist-bio-box h2,
-  .section-title {
-    font-size: clamp(38px, 12vw, 58px);
-    line-height: 0.95;
+/* Very small phones */
+@media (max-width: 430px) {
+  .hero-logo .logo-tattoo {
+    margin-top: 0 !important;
   }
 }
