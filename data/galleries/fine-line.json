@@ -1,7 +1,23 @@
 {
   "title": "Fine Line",
   "category": "Fine Line",
-  "coverImage": "",
+  "coverImage": "/img/uploads/img_0504.jpeg",
   "description": "Delicate fine line tattoo work focused on clean details and elegant placement.",
-  "images": []
+  "images": [
+    {
+      "image": "/img/uploads/13ddd09b-52f4-4559-a455-41189b684800.jpg"
+    },
+    {
+      "image": "/img/uploads/329fc7ee-f6c4-4070-99c9-9d45ec55c6b3.jpg"
+    },
+    {
+      "image": "/img/uploads/47e62fd6-59ae-4187-beca-f17ad329adfe.jpg"
+    },
+    {
+      "image": "/img/uploads/d6502400-cf2f-4ea5-9b7b-e6e070f05de8.jpg"
+    },
+    {
+      "image": "/img/uploads/59aabe46-79c4-443d-b469-1132e7553e20.jpg"
+    }
+  ]
 }
