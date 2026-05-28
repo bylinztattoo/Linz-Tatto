@@ -145,8 +145,8 @@ if ("IntersectionObserver" in window) {
    {
      "galleries": [
        {
-         "category": "Fine Line Detail",
-         "title": "Fine Line Detail",
+         "category": "Fine Line",
+         "title": "Fine Line",
          "coverImage": "/img/uploads/cover.jpg",
          "description": "...",
          "images": [
@@ -162,15 +162,15 @@ const galleryFilters = $$(".gallery-filter");
 
 const fallbackGalleries = [
   {
-    category: "Black & Grey Piece",
-    title: "Black & Grey Piece",
+    category: "Black & Grey",
+    title: "Black & Grey",
     description: "Custom black and grey tattoo work with contrast, softness, and detail.",
     coverImage: "",
     images: []
   },
   {
-    category: "Fine Line Detail",
-    title: "Fine Line Detail",
+    category: "Fine Line",
+    title: "Fine Line",
     description: "Delicate fine line tattoo work focused on clean details and elegant placement.",
     coverImage: "",
     images: []
@@ -183,9 +183,9 @@ const fallbackGalleries = [
     images: []
   },
   {
-    category: "Realism",
-    title: "Realism",
-    description: "Realistic custom tattoo compositions with depth, texture, and visual strength.",
+    category: "BlackWork",
+    title: "BlackWork",
+    description: "Bold blackwork tattoo compositions with clean contrast and strong visual impact.",
     coverImage: "",
     images: []
   },
@@ -368,7 +368,7 @@ function renderActiveGalleryImage() {
   const current = hasImages ? images[activeImageIndex] : null;
 
   if (lightboxCategory) lightboxCategory.textContent = activeGallery.category || "";
-  if (lightboxTitle) lightboxTitle.textContent = current?.title || activeGallery.title || activeGallery.category || "";
+  if (lightboxTitle) lightboxTitle.textContent = "";
   if (lightboxDescription) {
     lightboxDescription.textContent = current?.description || activeGallery.description || "This gallery is ready for images from the admin panel.";
   }
@@ -446,10 +446,10 @@ document.addEventListener("keydown", event => {
 
 async function loadPortfolioGalleries() {
   const galleryFiles = [
-    "data/galleries/black-grey-piece.json",
-    "data/galleries/fine-line-detail.json",
+    "data/galleries/black-grey.json",
+    "data/galleries/fine-line.json",
     "data/galleries/micro-realism.json",
-    "data/galleries/realism.json",
+    "data/galleries/blackwork.json",
     "data/galleries/color.json",
     "data/galleries/other.json"
   ];
@@ -469,7 +469,6 @@ async function loadPortfolioGalleries() {
     try {
       const response = await fetch("data/portfolio.json", { cache: "no-store" });
       if (!response.ok) throw new Error("Portfolio data not found");
-
       const data = await response.json();
       portfolioGalleries = mergeWithFallback(normalizePortfolioData(data));
     } catch (fallbackError) {

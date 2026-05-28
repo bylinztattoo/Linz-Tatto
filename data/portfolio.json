@@ -1,15 +1,15 @@
 {
   "galleries": [
     {
-      "title": "Black & Grey Piece",
-      "category": "Black & Grey Piece",
+      "title": "Black & Grey",
+      "category": "Black & Grey",
       "coverImage": "",
       "description": "Custom black and grey tattoo work with contrast, softness, and detail.",
       "images": []
     },
     {
-      "title": "Fine Line Detail",
-      "category": "Fine Line Detail",
+      "title": "Fine Line",
+      "category": "Fine Line",
       "coverImage": "",
       "description": "Delicate fine line tattoo work focused on clean details and elegant placement.",
       "images": []
@@ -22,10 +22,10 @@
       "images": []
     },
     {
-      "title": "Realism",
-      "category": "Realism",
+      "title": "BlackWork",
+      "category": "BlackWork",
       "coverImage": "",
-      "description": "Realistic custom tattoo compositions with depth, texture, and visual strength.",
+      "description": "Bold blackwork tattoo compositions with clean contrast and strong visual impact.",
       "images": []
     },
     {

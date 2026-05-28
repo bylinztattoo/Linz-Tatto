@@ -14,12 +14,12 @@ collections:
     label: "Portfolio Galleries"
     description: "Edit each tattoo style gallery separately. Each gallery has one cover image and multiple internal gallery images."
     files:
-      - label: "Black & Grey Piece"
-        name: "black_grey_piece"
-        file: "data/galleries/black-grey-piece.json"
+      - label: "Black & Grey"
+        name: "black_grey"
+        file: "data/galleries/black-grey.json"
         fields:
-          - { label: "Gallery Title", name: "title", widget: "string", default: "Black & Grey Piece", hint: "This title appears on the gallery card." }
-          - { label: "Category", name: "category", widget: "hidden", default: "Black & Grey Piece" }
+          - { label: "Gallery Title", name: "title", widget: "string", default: "Black & Grey", hint: "This title appears on the gallery card." }
+          - { label: "Category", name: "category", widget: "hidden", default: "Black & Grey" }
           - { label: "Cover Image", name: "coverImage", widget: "image", required: false, hint: "Main image shown on the website before opening the internal gallery." }
           - { label: "Gallery Description", name: "description", widget: "text", required: false, hint: "Short description shown on the gallery card or modal." }
           - label: "Internal Gallery Images"
@@ -33,12 +33,12 @@ collections:
               - { label: "Image Title", name: "title", widget: "string", required: false }
               - { label: "Image Description", name: "description", widget: "text", required: false }
 
-      - label: "Fine Line Detail"
-        name: "fine_line_detail"
-        file: "data/galleries/fine-line-detail.json"
+      - label: "Fine Line"
+        name: "fine_line"
+        file: "data/galleries/fine-line.json"
         fields:
-          - { label: "Gallery Title", name: "title", widget: "string", default: "Fine Line Detail", hint: "This title appears on the gallery card." }
-          - { label: "Category", name: "category", widget: "hidden", default: "Fine Line Detail" }
+          - { label: "Gallery Title", name: "title", widget: "string", default: "Fine Line", hint: "This title appears on the gallery card." }
+          - { label: "Category", name: "category", widget: "hidden", default: "Fine Line" }
           - { label: "Cover Image", name: "coverImage", widget: "image", required: false, hint: "Main image shown on the website before opening the internal gallery." }
           - { label: "Gallery Description", name: "description", widget: "text", required: false, hint: "Short description shown on the gallery card or modal." }
           - label: "Internal Gallery Images"
@@ -71,12 +71,12 @@ collections:
               - { label: "Image Title", name: "title", widget: "string", required: false }
               - { label: "Image Description", name: "description", widget: "text", required: false }
 
-      - label: "Realism"
-        name: "realism"
-        file: "data/galleries/realism.json"
+      - label: "BlackWork"
+        name: "blackwork"
+        file: "data/galleries/blackwork.json"
         fields:
-          - { label: "Gallery Title", name: "title", widget: "string", default: "Realism", hint: "This title appears on the gallery card." }
-          - { label: "Category", name: "category", widget: "hidden", default: "Realism" }
+          - { label: "Gallery Title", name: "title", widget: "string", default: "BlackWork", hint: "This title appears on the gallery card." }
+          - { label: "Category", name: "category", widget: "hidden", default: "BlackWork" }
           - { label: "Cover Image", name: "coverImage", widget: "image", required: false, hint: "Main image shown on the website before opening the internal gallery." }
           - { label: "Gallery Description", name: "description", widget: "text", required: false, hint: "Short description shown on the gallery card or modal." }
           - label: "Internal Gallery Images"

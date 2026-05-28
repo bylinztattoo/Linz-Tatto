@@ -1,17 +1,22 @@
-# Linz Tattoo Website
+# Linz Tattoo Website — Final Clean Version
 
-Sitio web estático listo para abrir en Visual Studio Code y subir a Netlify.
+Static website ready for GitHub + Netlify.
 
-## Archivos principales
-- `index.html`: estructura completa del sitio.
-- `css/style.css`: diseño visual, responsive y animaciones.
-- `js/script.js`: menú móvil, modal de reserva, galería y FAQ.
-- `img/logo-eye.svg`: logo provisional tipo ojo.
-- `admin/config.yml`: configuración inicial para Decap CMS.
-- `data/site.json`: datos editables base.
+## Main files
+- index.html
+- css/style.css
+- js/script.js
+- admin/config.yml
+- admin/index.html
+- data/portfolio.json
+- data/galleries/*.json
+- data/reviews.json
+- data/site.json
+- img/artist/linz.jpg
 
-## Cambios importantes antes de publicar
-1. En `index.html`, busca `YOUR-EMAIL-HERE` y reemplázalo por el correo real donde recibirás las reservas.
-2. Reemplaza los fondos provisionales por imágenes reales en la carpeta `img/`.
-3. Cambia los textos de Orlando/Florida si la ubicación final será otra.
-4. Si usarás Netlify + Decap CMS, activa Identity y Git Gateway.
+## Notes
+- Portfolio galleries are editable from Decap CMS under `Portfolio Galleries`.
+- Each style has its own JSON file under `data/galleries/`.
+- The website loads those gallery files first, with `data/portfolio.json` as fallback.
+- Booking and review forms send to bylinztattoo@gmail.com through FormSubmit.
+- Netlify Identity + Git Gateway must be enabled for `/admin`.
