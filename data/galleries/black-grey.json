@@ -1,7 +1,23 @@
 {
   "title": "Black & Grey",
   "category": "Black & Grey",
-  "coverImage": "",
+  "coverImage": "/img/uploads/img_7987.jpeg",
   "description": "Custom black and grey tattoo work with contrast, softness, and detail.",
-  "images": []
+  "images": [
+    {
+      "image": "/img/uploads/04325db2-528e-4fd6-9e9d-c5e51cec7326.jpg"
+    },
+    {
+      "image": "/img/uploads/fce058c0-4f72-473b-8639-c2eb34781e5d.jpg"
+    },
+    {
+      "image": "/img/uploads/634d0045-749e-4619-a5c6-d4b02cbf508d.jpg"
+    },
+    {
+      "image": "/img/uploads/53a8bf0c-5777-4883-8539-e3ad92739cab.jpg"
+    },
+    {
+      "image": "/img/uploads/b0cd3956-5519-47be-bbfd-37fa5f4d137a.jpg"
+    }
+  ]
 }
