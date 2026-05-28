@@ -1870,3 +1870,69 @@ textarea {
     right: 10px;
   }
 }
+
+
+
+
+
+
+
+/* =========================================================
+   Artist Bio Safe Reveal Effect
+   Visible by default fallback + elegant paragraph reveal
+   ========================================================= */
+
+.artist-bio-box p {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+
+/* The effect only activates when JS confirms it is ready */
+body.bio-reveal-ready .artist-bio-box p {
+  opacity: 0;
+  transform: translateY(34px);
+  filter: blur(7px);
+  transition:
+    opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: calc(var(--bio-delay, 0) * 140ms);
+}
+
+body.bio-reveal-ready .artist-bio-box.bio-visible p {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+
+body.bio-reveal-ready .artist-bio-box.bio-visible p:hover {
+  text-shadow: 0 0 18px rgba(255, 255, 255, 0.10);
+}
+
+/* Keeps the vertical rose line elegant but never hides the content */
+.artist-bio-box::before {
+  opacity: 0.65;
+  transition: opacity 0.9s ease, transform 0.9s ease;
+  transform-origin: top;
+}
+
+body.bio-reveal-ready .artist-bio-box:not(.bio-visible)::before {
+  opacity: 0.35;
+  transform: scaleY(0.35);
+}
+
+body.bio-reveal-ready .artist-bio-box.bio-visible::before {
+  opacity: 1;
+  transform: scaleY(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.bio-reveal-ready .artist-bio-box p,
+  .artist-bio-box p {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    transition: none !important;
+  }
+}

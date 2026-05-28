@@ -5,43 +5,132 @@ backend:
 media_folder: "img/uploads"
 public_folder: "/img/uploads"
 
+site_url: "/"
+display_url: "/"
+logo_url: "/img/logo-eye.svg"
+
 collections:
-  - name: "portfolio"
+  - name: "portfolio_galleries"
     label: "Portfolio Galleries"
+    description: "Edit each tattoo style gallery separately. Each gallery has one cover image and multiple internal gallery images."
     files:
-      - label: "Tattoo Style Galleries"
-        name: "portfolio"
-        file: "data/portfolio.json"
+      - label: "Black & Grey Piece"
+        name: "black_grey_piece"
+        file: "data/galleries/black-grey-piece.json"
         fields:
-          - label: "Galleries"
-            name: "galleries"
+          - { label: "Gallery Title", name: "title", widget: "string", default: "Black & Grey Piece", hint: "This title appears on the gallery card." }
+          - { label: "Category", name: "category", widget: "hidden", default: "Black & Grey Piece" }
+          - { label: "Cover Image", name: "coverImage", widget: "image", required: false, hint: "Main image shown on the website before opening the internal gallery." }
+          - { label: "Gallery Description", name: "description", widget: "text", required: false, hint: "Short description shown on the gallery card or modal." }
+          - label: "Internal Gallery Images"
+            name: "images"
             widget: "list"
-            summary: "{{fields.category}}"
+            collapsed: true
+            summary: "{{fields.title}}"
+            hint: "Upload all images that belong to this tattoo style."
             fields:
-              - label: "Category"
-                name: "category"
-                widget: "select"
-                options:
-                  - "Black & Grey Piece"
-                  - "Fine Line Detail"
-                  - "Micro Realism"
-                  - "Realism"
-                  - "Color"
-                  - "Other"
-              - { label: "Gallery Title", name: "title", widget: "string" }
-              - { label: "Gallery Description", name: "description", widget: "text", required: false }
-              - { label: "Cover Image", name: "coverImage", widget: "image", required: false }
-              - label: "Internal Gallery Images"
-                name: "images"
-                widget: "list"
-                summary: "{{fields.title}}"
-                fields:
-                  - { label: "Image", name: "image", widget: "image" }
-                  - { label: "Image Title", name: "title", widget: "string", required: false }
-                  - { label: "Image Description", name: "description", widget: "text", required: false }
+              - { label: "Image", name: "image", widget: "image" }
+              - { label: "Image Title", name: "title", widget: "string", required: false }
+              - { label: "Image Description", name: "description", widget: "text", required: false }
+
+      - label: "Fine Line Detail"
+        name: "fine_line_detail"
+        file: "data/galleries/fine-line-detail.json"
+        fields:
+          - { label: "Gallery Title", name: "title", widget: "string", default: "Fine Line Detail", hint: "This title appears on the gallery card." }
+          - { label: "Category", name: "category", widget: "hidden", default: "Fine Line Detail" }
+          - { label: "Cover Image", name: "coverImage", widget: "image", required: false, hint: "Main image shown on the website before opening the internal gallery." }
+          - { label: "Gallery Description", name: "description", widget: "text", required: false, hint: "Short description shown on the gallery card or modal." }
+          - label: "Internal Gallery Images"
+            name: "images"
+            widget: "list"
+            collapsed: true
+            summary: "{{fields.title}}"
+            hint: "Upload all images that belong to this tattoo style."
+            fields:
+              - { label: "Image", name: "image", widget: "image" }
+              - { label: "Image Title", name: "title", widget: "string", required: false }
+              - { label: "Image Description", name: "description", widget: "text", required: false }
+
+      - label: "Micro Realism"
+        name: "micro_realism"
+        file: "data/galleries/micro-realism.json"
+        fields:
+          - { label: "Gallery Title", name: "title", widget: "string", default: "Micro Realism", hint: "This title appears on the gallery card." }
+          - { label: "Category", name: "category", widget: "hidden", default: "Micro Realism" }
+          - { label: "Cover Image", name: "coverImage", widget: "image", required: false, hint: "Main image shown on the website before opening the internal gallery." }
+          - { label: "Gallery Description", name: "description", widget: "text", required: false, hint: "Short description shown on the gallery card or modal." }
+          - label: "Internal Gallery Images"
+            name: "images"
+            widget: "list"
+            collapsed: true
+            summary: "{{fields.title}}"
+            hint: "Upload all images that belong to this tattoo style."
+            fields:
+              - { label: "Image", name: "image", widget: "image" }
+              - { label: "Image Title", name: "title", widget: "string", required: false }
+              - { label: "Image Description", name: "description", widget: "text", required: false }
+
+      - label: "Realism"
+        name: "realism"
+        file: "data/galleries/realism.json"
+        fields:
+          - { label: "Gallery Title", name: "title", widget: "string", default: "Realism", hint: "This title appears on the gallery card." }
+          - { label: "Category", name: "category", widget: "hidden", default: "Realism" }
+          - { label: "Cover Image", name: "coverImage", widget: "image", required: false, hint: "Main image shown on the website before opening the internal gallery." }
+          - { label: "Gallery Description", name: "description", widget: "text", required: false, hint: "Short description shown on the gallery card or modal." }
+          - label: "Internal Gallery Images"
+            name: "images"
+            widget: "list"
+            collapsed: true
+            summary: "{{fields.title}}"
+            hint: "Upload all images that belong to this tattoo style."
+            fields:
+              - { label: "Image", name: "image", widget: "image" }
+              - { label: "Image Title", name: "title", widget: "string", required: false }
+              - { label: "Image Description", name: "description", widget: "text", required: false }
+
+      - label: "Color"
+        name: "color"
+        file: "data/galleries/color.json"
+        fields:
+          - { label: "Gallery Title", name: "title", widget: "string", default: "Color", hint: "This title appears on the gallery card." }
+          - { label: "Category", name: "category", widget: "hidden", default: "Color" }
+          - { label: "Cover Image", name: "coverImage", widget: "image", required: false, hint: "Main image shown on the website before opening the internal gallery." }
+          - { label: "Gallery Description", name: "description", widget: "text", required: false, hint: "Short description shown on the gallery card or modal." }
+          - label: "Internal Gallery Images"
+            name: "images"
+            widget: "list"
+            collapsed: true
+            summary: "{{fields.title}}"
+            hint: "Upload all images that belong to this tattoo style."
+            fields:
+              - { label: "Image", name: "image", widget: "image" }
+              - { label: "Image Title", name: "title", widget: "string", required: false }
+              - { label: "Image Description", name: "description", widget: "text", required: false }
+
+      - label: "Other"
+        name: "other"
+        file: "data/galleries/other.json"
+        fields:
+          - { label: "Gallery Title", name: "title", widget: "string", default: "Other", hint: "This title appears on the gallery card." }
+          - { label: "Category", name: "category", widget: "hidden", default: "Other" }
+          - { label: "Cover Image", name: "coverImage", widget: "image", required: false, hint: "Main image shown on the website before opening the internal gallery." }
+          - { label: "Gallery Description", name: "description", widget: "text", required: false, hint: "Short description shown on the gallery card or modal." }
+          - label: "Internal Gallery Images"
+            name: "images"
+            widget: "list"
+            collapsed: true
+            summary: "{{fields.title}}"
+            hint: "Upload all images that belong to this tattoo style."
+            fields:
+              - { label: "Image", name: "image", widget: "image" }
+              - { label: "Image Title", name: "title", widget: "string", required: false }
+              - { label: "Image Description", name: "description", widget: "text", required: false }
 
   - name: "reviews"
     label: "Client Reviews"
+    description: "Approve or edit client reviews before they appear on the website."
     files:
       - label: "Approved Reviews"
         name: "reviews"
@@ -50,9 +139,10 @@ collections:
           - label: "Reviews"
             name: "reviews"
             widget: "list"
+            collapsed: true
             summary: "{{fields.name}} — {{fields.rating}} Stars"
             fields:
-              - { label: "Approved / Publish on Website", name: "approved", widget: "boolean", default: false }
+              - { label: "Approved / Publish on Website", name: "approved", widget: "boolean", default: false, hint: "Turn this on only when the review is approved." }
               - { label: "Client Name", name: "name", widget: "string" }
               - label: "Rating"
                 name: "rating"
@@ -63,3 +153,16 @@ collections:
                   - { label: "3 Stars", value: 3 }
               - { label: "Tattoo Style", name: "style", widget: "string", required: false }
               - { label: "Review", name: "review", widget: "text" }
+
+  - name: "site_settings"
+    label: "Site Settings"
+    description: "Basic editable text and links for the website."
+    files:
+      - label: "General Site Info"
+        name: "site"
+        file: "data/site.json"
+        fields:
+          - { label: "Hero Tagline", name: "heroTagline", widget: "string", required: false, default: "Custom tattoo art designed with precision, flow, and intention." }
+          - { label: "Instagram Link", name: "instagram", widget: "string", required: false }
+          - { label: "Facebook Link", name: "facebook", widget: "string", required: false }
+          - { label: "TikTok Link", name: "tiktok", widget: "string", required: false }

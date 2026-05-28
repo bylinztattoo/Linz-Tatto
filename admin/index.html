@@ -4,6 +4,36 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Linz Tattoo Content Manager</title>
+  <style>
+    body::before {
+      content: "Linz Tattoo Admin";
+      position: fixed;
+      z-index: 999999;
+      left: 16px;
+      bottom: 16px;
+      padding: 10px 14px;
+      border: 1px solid rgba(201, 143, 122, 0.35);
+      background: rgba(15, 15, 15, 0.86);
+      color: #fff;
+      font-family: system-ui, sans-serif;
+      font-size: 12px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      pointer-events: none;
+      backdrop-filter: blur(10px);
+    }
+
+    @media (max-width: 760px) {
+      body::before {
+        content: "Admin tip: for galleries, tablet or desktop is recommended.";
+        right: 12px;
+        left: 12px;
+        bottom: 12px;
+        text-align: center;
+        font-size: 11px;
+      }
+    }
+  </style>
 </head>
 <body>
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>

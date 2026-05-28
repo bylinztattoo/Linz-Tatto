@@ -445,14 +445,36 @@ document.addEventListener("keydown", event => {
 });
 
 async function loadPortfolioGalleries() {
-  try {
-    const response = await fetch("data/portfolio.json", { cache: "no-store" });
-    if (!response.ok) throw new Error("Portfolio data not found");
+  const galleryFiles = [
+    "data/galleries/black-grey-piece.json",
+    "data/galleries/fine-line-detail.json",
+    "data/galleries/micro-realism.json",
+    "data/galleries/realism.json",
+    "data/galleries/color.json",
+    "data/galleries/other.json"
+  ];
 
-    const data = await response.json();
-    portfolioGalleries = mergeWithFallback(normalizePortfolioData(data));
+  try {
+    const responses = await Promise.all(
+      galleryFiles.map(file =>
+        fetch(file, { cache: "no-store" }).then(response => {
+          if (!response.ok) throw new Error(`Gallery file not found: ${file}`);
+          return response.json();
+        })
+      )
+    );
+
+    portfolioGalleries = mergeWithFallback(responses);
   } catch (error) {
-    portfolioGalleries = [...fallbackGalleries];
+    try {
+      const response = await fetch("data/portfolio.json", { cache: "no-store" });
+      if (!response.ok) throw new Error("Portfolio data not found");
+
+      const data = await response.json();
+      portfolioGalleries = mergeWithFallback(normalizePortfolioData(data));
+    } catch (fallbackError) {
+      portfolioGalleries = [...fallbackGalleries];
+    }
   }
 
   renderPortfolio();
@@ -510,3 +532,49 @@ async function loadReviews() {
 }
 
 loadReviews();
+
+
+/* Artist biography safe reveal */
+document.addEventListener("DOMContentLoaded", () => {
+  const artistBioBox = document.querySelector(".artist-bio-box");
+  if (!artistBioBox) return;
+
+  const bioParagraphs = Array.from(artistBioBox.querySelectorAll("p"));
+
+  bioParagraphs.forEach((paragraph, index) => {
+    paragraph.style.setProperty("--bio-delay", index);
+  });
+
+  document.body.classList.add("bio-reveal-ready");
+
+  const showBio = () => {
+    artistBioBox.classList.add("bio-visible");
+  };
+
+  /* If the bio is already on screen, show it quickly instead of leaving it hidden */
+  const rect = artistBioBox.getBoundingClientRect();
+  const alreadyVisible = rect.top < window.innerHeight && rect.bottom > 0;
+
+  if (alreadyVisible) {
+    setTimeout(showBio, 180);
+    return;
+  }
+
+  if ("IntersectionObserver" in window) {
+    const bioObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          showBio();
+          bioObserver.unobserve(artistBioBox);
+        }
+      });
+    }, {
+      threshold: 0.14,
+      rootMargin: "0px 0px -8% 0px"
+    });
+
+    bioObserver.observe(artistBioBox);
+  } else {
+    showBio();
+  }
+});
