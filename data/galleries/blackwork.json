@@ -1,7 +1,23 @@
 {
   "title": "BlackWork",
   "category": "BlackWork",
-  "coverImage": "",
+  "coverImage": "/img/uploads/1.jpg",
   "description": "Bold blackwork tattoo compositions with clean contrast and strong visual impact.",
-  "images": []
+  "images": [
+    {
+      "image": "/img/uploads/e32214c9-7ef7-4c9f-a2a6-cb885c52e295.jpg"
+    },
+    {
+      "image": "/img/uploads/71f928db-e67d-4720-828e-76d8da79b7d6.jpg"
+    },
+    {
+      "image": "/img/uploads/905da15e-7415-4dd6-b4c7-44c54b8cd0d9.jpg"
+    },
+    {
+      "image": "/img/uploads/c587435f-65cb-49e1-ab3d-62e73f3f7350.jpg"
+    },
+    {
+      "image": "/img/uploads/97ae1850-1a7b-461d-8af5-3a32bfc02a1d.jpg"
+    }
+  ]
 }
