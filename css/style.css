@@ -2576,3 +2576,52 @@ button {
     line-height: 1 !important;
   }
 }
+
+/* =========================================================
+   iOS Checkbox Visibility Fix
+   Makes required consent checkboxes visible and tappable on iPhone/Safari
+   ========================================================= */
+
+.booking-form .check {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: flex-start !important;
+  gap: 12px !important;
+  cursor: pointer !important;
+}
+
+.booking-form .check input[type="checkbox"],
+.review-consent input[type="checkbox"] {
+  -webkit-appearance: checkbox !important;
+  appearance: checkbox !important;
+  display: inline-block !important;
+  flex: 0 0 auto !important;
+  width: 18px !important;
+  height: 18px !important;
+  min-width: 18px !important;
+  min-height: 18px !important;
+  margin: 5px 4px 0 0 !important;
+  padding: 0 !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  position: relative !important;
+  accent-color: var(--gold) !important;
+  border-radius: 2px !important;
+  cursor: pointer !important;
+}
+
+@supports (-webkit-touch-callout: none) {
+  .booking-form .check input[type="checkbox"],
+  .review-consent input[type="checkbox"] {
+    -webkit-appearance: checkbox !important;
+    appearance: checkbox !important;
+    background-color: #ffffff !important;
+    border: 1px solid rgba(255, 255, 255, 0.85) !important;
+  }
+}
+
+.booking-form .check span,
+.review-consent span {
+  display: inline-block !important;
+  flex: 1 1 auto !important;
+}
