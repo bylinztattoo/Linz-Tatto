@@ -2422,3 +2422,32 @@ button {
     line-height: 1.42 !important;
   }
 }
+/* =========================================================
+   FINAL MOBILE RESPONSIVE FIXES
+   Controls logo, titles and text sizes on mobile
+   ========================================================= */
+
+@media (max-width: 768px) {
+  .hero-logo .logo-linz {
+    font-size: clamp(64px, 18vw, 92px);
+    line-height: 0.78;
+  }
+
+  .hero-logo .logo-tattoo {
+    font-size: clamp(76px, 21vw, 112px);
+    line-height: 0.78;
+    margin-top: -0.18em;
+  }
+
+  .hero-tagline {
+    font-size: clamp(22px, 6vw, 31px);
+    line-height: 1.25;
+    max-width: 330px;
+  }
+
+  .artist-bio-box h2,
+  .section-title {
+    font-size: clamp(38px, 12vw, 58px);
+    line-height: 0.95;
+  }
+}
