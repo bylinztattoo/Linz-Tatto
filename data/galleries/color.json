@@ -1,7 +1,23 @@
 {
   "title": "Color",
   "category": "Color",
-  "coverImage": "",
+  "coverImage": "/img/uploads/1.jpg",
   "description": "Color tattoo work designed with balance, composition, and personality.",
-  "images": []
+  "images": [
+    {
+      "image": "/img/uploads/917199c1-c9ea-4821-b3a6-8b19c08a43a2.jpg"
+    },
+    {
+      "image": "/img/uploads/041aa62b-7427-40f1-aa7a-0a4d835a7c54.jpg"
+    },
+    {
+      "image": "/img/uploads/c93bb6a8-a52e-4472-9edc-a089f22bf729.jpg"
+    },
+    {
+      "image": "/img/uploads/2c4085d0-33b2-44d7-bbe0-38b7bdb14110.jpg"
+    },
+    {
+      "image": "/img/uploads/36c2b1bb-446d-4ea2-8f3e-ed8d4fa24574.jpg"
+    }
+  ]
 }
