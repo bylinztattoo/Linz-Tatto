@@ -162,16 +162,16 @@ const galleryFilters = $$(".gallery-filter");
 
 const fallbackGalleries = [
   {
-    category: "Black & Grey",
-    title: "Black & Grey",
-    description: "Custom black and grey tattoo work with contrast, softness, and detail.",
+    category: "Fine Line",
+    title: "Fine Line",
+    description: "Delicate fine line tattoo work focused on clean details and elegant placement.",
     coverImage: "",
     images: []
   },
   {
-    category: "Fine Line",
-    title: "Fine Line",
-    description: "Delicate fine line tattoo work focused on clean details and elegant placement.",
+    category: "Color",
+    title: "Color",
+    description: "Color tattoo work designed with balance, composition, and personality.",
     coverImage: "",
     images: []
   },
@@ -183,16 +183,16 @@ const fallbackGalleries = [
     images: []
   },
   {
-    category: "BlackWork",
-    title: "BlackWork",
-    description: "Bold blackwork tattoo compositions with clean contrast and strong visual impact.",
+    category: "Black & Grey",
+    title: "Black & Grey",
+    description: "Custom black and grey tattoo work with contrast, softness, and detail.",
     coverImage: "",
     images: []
   },
   {
-    category: "Color",
-    title: "Color",
-    description: "Color tattoo work designed with balance, composition, and personality.",
+    category: "BlackWork",
+    title: "BlackWork",
+    description: "Bold blackwork tattoo compositions with clean contrast and strong visual impact.",
     coverImage: "",
     images: []
   },
@@ -446,11 +446,11 @@ document.addEventListener("keydown", event => {
 
 async function loadPortfolioGalleries() {
   const galleryFiles = [
-    "data/galleries/black-grey.json",
     "data/galleries/fine-line.json",
-    "data/galleries/micro-realism.json",
-    "data/galleries/blackwork.json",
     "data/galleries/color.json",
+    "data/galleries/micro-realism.json",
+    "data/galleries/black-grey.json",
+    "data/galleries/blackwork.json",
     "data/galleries/other.json"
   ];
 
