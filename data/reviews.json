@@ -24,6 +24,13 @@
       "name": "Charrisa Warnock",
       "rating": 5,
       "review": "Linz hizo un trabajo magnífico con la idea del libro. Me encanta, si tienen la oportunidad de tatuarse con ella, ¡aprovéchenla!\nServicios: Tatuajes de líneas finas"
+    },
+    {
+      "approved": true,
+      "name": "Ally Molino",
+      "rating": 5,
+      "style": "Fine line",
+      "review": "Literally could not have had a better experience with Linz. She was professional, clean, and as someone who is tattooed regularly, she did the best work. She is clean and did incredible work."
     }
   ]
 }
