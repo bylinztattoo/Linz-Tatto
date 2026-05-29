@@ -15,7 +15,7 @@
 
   <header class="site-header" id="top">
     <nav class="desktop-nav" aria-label="Main navigation">
-    <a href="#about">Artist</a>
+    <a href="#artist">Artist</a>
     <a href="#work">Work</a>
     <a href="#process">Process</a>
     <a href="#faq">FAQ</a>
@@ -45,7 +45,7 @@
 <button class="menu-peek" type="button" aria-label="Show menu">☰</button>
 <aside class="mobile-menu" aria-hidden="true">
   <button class="menu-close" type="button" aria-label="Close menu">×</button>
-  <a href="#about">Artist</a>
+  <a href="#artist">Artist</a>
   <a href="#work">Work</a>
   <a href="#process">Process</a>
   <a href="#faq">FAQ</a>
@@ -60,7 +60,7 @@
 </aside>
 
   <main>
-    <section class="hero artist-hero section-reveal">
+    <section class="hero artist-hero section-reveal" id="artist">
   <div class="artist-hero-bg"></div>
   <div class="artist-hero-overlay"></div>
 
@@ -302,10 +302,10 @@
           </div>
 
           <form class="review-form" action="https://formsubmit.co/bylinztattoo@gmail.com" method="POST">
-            <input type="hidden" name="_subject" value="New review submission for Linz Tattoo approval">
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_template" value="table">
-           <input type="hidden" name="_next" value="https://linztatto.netlify.app/thank-you.html?type=booking">
+          <input type="hidden" name="_subject" value="New review submission for Linz Tattoo approval">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_next" value="https://linztatto.netlify.app/thank-you.html?type=review">
 
             <h3>Leave a Review</h3>
             <p>Your review will be sent to the admin for approval before it appears on the website.</p>
@@ -368,10 +368,10 @@
       <button class="modal-close js-close-booking" type="button" aria-label="Close booking form">×</button>
       <h2 id="bookingTitle">Book a Session</h2>
       <form class="booking-form" action="https://formsubmit.co/bylinztattoo@gmail.com" method="POST" enctype="multipart/form-data">
-        <input type="hidden" name="_subject" value="New booking request from Linz Tattoo Website">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_template" value="table">
-      <input type="hidden" name="_next" value="https://linztatto.netlify.app/thank-you.html?type=review">
+      <input type="hidden" name="_subject" value="New booking request from Linz Tattoo Website">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_next" value="https://linztatto.netlify.app/thank-you.html?type=booking">
 
         <label>Full Name<input type="text" name="Full Name" placeholder="Name" required></label>
         <label>Email<input type="email" name="Email" placeholder="@gmail.com" required></label>
