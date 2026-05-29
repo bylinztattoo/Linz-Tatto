@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Request Received | Linz Tattoo</title>
+  <meta name="description" content="Your request has been received by Linz Tattoo." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&family=Allura&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="thank-you-page">
+  <div class="noise"></div>
+
+  <main class="thank-you-main">
+    <section class="thank-you-card">
+      <p class="hero-kicker" id="thankYouKicker">Linz Tattoo</p>
+      <h1 id="thankYouTitle">Request Received</h1>
+      <p id="thankYouMessage">
+        Thank you. Your request has been received successfully. I will review your information and get back to you as soon as possible.
+      </p>
+      <p class="thank-you-note">
+        You will be redirected back to the website automatically.
+      </p>
+      <a class="btn btn-gold" href="/">Return to Website</a>
+    </section>
+  </main>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const type = params.get("type");
+
+    const title = document.getElementById("thankYouTitle");
+    const message = document.getElementById("thankYouMessage");
+    const kicker = document.getElementById("thankYouKicker");
+
+    if (type === "review") {
+      kicker.textContent = "Review Submitted";
+      title.textContent = "Thank You";
+      message.textContent = "Your review has been received successfully. It will be reviewed by the admin before being published on the website.";
+    } else {
+      kicker.textContent = "Booking Request";
+      title.textContent = "Form Received";
+      message.textContent = "Your booking request has been received successfully. I will review your idea, availability, and details, then get back to you with the next steps.";
+    }
+
+    setTimeout(() => {
+      window.location.href = "/";
+    }, 6500);
+  </script>
+</body>
+</html>
