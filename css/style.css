@@ -2705,3 +2705,62 @@ button {
 .hidden {
   display: none !important;
 }
+
+/* =========================================================
+   Reference Images Instagram Note
+   Replaces file uploads for Web3Forms free plan
+   ========================================================= */
+
+.reference-note {
+  grid-column: 1 / -1;
+  padding: 22px 24px;
+  border: 1px solid rgba(201, 143, 122, 0.28);
+  background: rgba(201, 143, 122, 0.055);
+}
+
+.reference-note strong {
+  display: block;
+  margin-bottom: 8px;
+  font-family: var(--font-title);
+  font-size: 18px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.reference-note p {
+  margin: 0 0 14px;
+  color: rgba(255, 255, 255, 0.68);
+  font-size: 17px;
+  line-height: 1.45;
+}
+
+.reference-note a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 16px;
+  border: 1px solid rgba(201, 143, 122, 0.72);
+  color: #111111;
+  background: var(--gold);
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.reference-note a:hover {
+  background: var(--gold-2);
+  border-color: var(--gold-2);
+}
+
+@media (max-width: 640px) {
+  .reference-note {
+    padding: 18px;
+  }
+
+  .reference-note a {
+    width: 100%;
+  }
+}

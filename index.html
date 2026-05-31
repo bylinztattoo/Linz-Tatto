@@ -173,7 +173,7 @@
     <section class="booking-cta section-reveal">
       <div class="container cta-box">
         <h2>Let’s Bring Your Vision to Life</h2>
-        <p>Complete the form with your idea, preferred placement, estimated size, budget range, and reference images. Once submitted, I will review your request and get back to you with availability, pricing, and next steps.</p>
+        <p>Complete the form with your idea, preferred placement, estimated size, and budget range. After submitting, send your reference images through Instagram DM so I can review everything and get back to you with availability, pricing, and next steps.</p>
         <button class="btn btn-gold js-open-booking" type="button">Open Form</button>
       </div>
     </section>
@@ -368,7 +368,7 @@
     <div class="booking-dialog" role="dialog" aria-modal="true" aria-labelledby="bookingTitle">
       <button class="modal-close js-close-booking" type="button" aria-label="Close booking form">×</button>
       <h2 id="bookingTitle">Book a Session</h2>
-      <form class="booking-form" action="https://api.web3forms.com/submit" method="POST" enctype="multipart/form-data">
+      <form class="booking-form" action="https://api.web3forms.com/submit" method="POST">
       <input type="hidden" name="access_key" value="7b1c29b3-3469-4058-a933-95ec332228b0">
       <input type="hidden" name="subject" value="New booking request from Linz Tattoo Website">
       <input type="hidden" name="from_name" value="Linz Tattoo Website - Booking">
@@ -432,8 +432,12 @@
         </label>
         <label>Do you have an estimate in mind?<input type="text" name="Estimated Budget" placeholder="Example: $120 - $1250 / None" required></label>
         <label class="full">Describe Your Idea<textarea name="Tattoo Idea" placeholder="Concept, style, elements, size..." required></textarea></label>
-        <label class="upload">Photo of Body Placement<input type="file" name="Body Placement Photo" accept="image/*"></label>
-        <label class="upload">Reference Images <small>(optional)</small><input type="file" name="Reference Images" accept="image/*" multiple></label>
+
+        <div class="reference-note full">
+          <strong>Reference Images</strong>
+          <p>Please send your tattoo references, placement photos, or inspiration images directly through Instagram DM after submitting this form.</p>
+          <a href="https://www.instagram.com/linz.tattoo?igsh=MW1vZnFheXp6Ymo3YQ%3D%3D&utm_source=qr" target="_blank" rel="noopener">Send references on Instagram</a>
+        </div>
         <label class="check full"><input type="checkbox" name="Age and Deposit Agreement" value="Accepted" required> <span>I certify that I am 18 years of age or older. I understand that a $100 non-refundable deposit is required to reserve my appointment, that it will be applied toward the final price of my tattoo, and that at least 48 hours notice is required to reschedule.</span></label>
         <button class="btn btn-gold submit-btn" type="submit">Submit</button>
       </form>
