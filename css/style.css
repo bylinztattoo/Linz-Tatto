@@ -2696,3 +2696,12 @@ button {
     padding: 38px 24px;
   }
 }
+
+/* =========================================================
+   Web3Forms Hidden Botcheck
+   Keeps spam honeypot hidden without affecting layout
+   ========================================================= */
+
+.hidden {
+  display: none !important;
+}
