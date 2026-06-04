@@ -173,7 +173,7 @@
     <section class="booking-cta section-reveal">
       <div class="container cta-box">
         <h2>Let’s Bring Your Vision to Life</h2>
-        <p>Complete the form with your idea, preferred placement, estimated size, and budget range. After submitting, send your reference images through Instagram DM so I can review everything and get back to you with availability, pricing, and next steps.</p>
+        <p>Complete the form with your idea, preferred placement, estimated size, and budget range. After submitting, please send your reference images by email with your name in the subject line and the word “Reference” so I can review everything and get back to you with availability, pricing, and next steps.</p>
         <button class="btn btn-gold js-open-booking" type="button">Open Form</button>
       </div>
     </section>
@@ -435,14 +435,34 @@
 
         <div class="reference-note full">
           <strong>Reference Images</strong>
-          <p>Please send your tattoo references, placement photos, or inspiration images directly through Instagram DM after submitting this form.</p>
-          <a href="https://www.instagram.com/linz.tattoo?igsh=MW1vZnFheXp6Ymo3YQ%3D%3D&utm_source=qr" target="_blank" rel="noopener">Send references on Instagram</a>
+          <p>Reference images must be sent by email to <b>bylinztattoo@gmail.com</b>. Please include your name in the subject line followed by the word “Reference”.</p>
+          <button class="reference-email-btn" type="button" data-open-reference-email>Email instructions</button>
         </div>
-        <label class="check full"><input type="checkbox" name="Age and Deposit Agreement" value="Accepted" required> <span>I certify that I am 18 years of age or older. I understand that a $100 non-refundable deposit is required to reserve my appointment, that it will be applied toward the final price of my tattoo, and that at least 48 hours notice is required to reschedule.</span></label>
+<label class="check full"><input type="checkbox" name="Age and Deposit Agreement" value="Accepted" required> <span>I certify that I am 18 years of age or older. I understand that a $100 non-refundable deposit is required to reserve my appointment, that it will be applied toward the final price of my tattoo, and that at least 48 hours notice is required to reschedule.</span></label>
         <button class="btn btn-gold submit-btn" type="submit">Submit</button>
       </form>
     </div>
   </div>
+
+
+  <div class="reference-email-modal" aria-hidden="true">
+    <div class="reference-email-backdrop" data-close-reference-email></div>
+    <div class="reference-email-dialog" role="dialog" aria-modal="true" aria-labelledby="referenceEmailTitle">
+      <button class="reference-email-close" type="button" aria-label="Close email instructions" data-close-reference-email>×</button>
+      <p class="small-line">Reference Images</p>
+      <h2 id="referenceEmailTitle">Send References by Email</h2>
+      <p>After submitting the form, please send your reference images to:</p>
+      <a class="reference-email-address" href="mailto:bylinztattoo@gmail.com">bylinztattoo@gmail.com</a>
+      <p>In the email subject, write your name followed by the word <strong>Reference</strong>.</p>
+      <div class="reference-email-example">
+        Example subject:<br>
+        <strong>Your Name — Reference</strong>
+      </div>
+      <a class="btn btn-gold reference-mailto" href="mailto:bylinztattoo@gmail.com?subject=Reference%20-%20Your%20Name&body=Hello%20Linz%20Tattoo,%0A%0AMy%20name%20is:%20%0AI%20submitted%20a%20booking%20form%20from%20the%20website.%0A%0AAttached%20are%20my%20reference%20images.%0A%0AThank%20you.">Open Email App</a>
+      <p class="reference-email-note">Attach your reference images from your email app before sending.</p>
+    </div>
+  </div>
+
 
   <div class="lightbox gallery-modal" aria-hidden="true">
     <button class="lightbox-close" type="button" aria-label="Close gallery">×</button>
@@ -486,5 +506,33 @@
     });
   }
 </script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const referenceModal = document.querySelector(".reference-email-modal");
+    const openReferenceButtons = document.querySelectorAll("[data-open-reference-email]");
+    const closeReferenceButtons = document.querySelectorAll("[data-close-reference-email]");
+
+    const openReferenceModal = () => {
+      if (!referenceModal) return;
+      referenceModal.classList.add("active");
+      referenceModal.setAttribute("aria-hidden", "false");
+    };
+
+    const closeReferenceModal = () => {
+      if (!referenceModal) return;
+      referenceModal.classList.remove("active");
+      referenceModal.setAttribute("aria-hidden", "true");
+    };
+
+    openReferenceButtons.forEach(button => button.addEventListener("click", openReferenceModal));
+    closeReferenceButtons.forEach(button => button.addEventListener("click", closeReferenceModal));
+
+    document.addEventListener("keydown", event => {
+      if (event.key === "Escape") closeReferenceModal();
+    });
+  });
+</script>
+
 </body>
 </html>
